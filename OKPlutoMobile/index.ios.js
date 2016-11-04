@@ -19,11 +19,14 @@
 
 import Home from './src/components/home';
 
+
 import Profile from './src/components/profile'
 
 // import UsersPage from './src/components/UsersPage';
+
+// import UsersPage from './src/components/UsersPage';
 // import Events from './src/components/Events';
-// import Profile from './src/components/Profile';
+
 
 import React, { Component } from 'react';
 import {
