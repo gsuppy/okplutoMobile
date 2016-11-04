@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component, PropTypes as T } from 'react';
-import {View, ScrollView, Text, Image, Linking} from 'react-native';
+import {View, ScrollView, Text, Image, Linking, TouchableHightlight} from 'react-native';
 // import AuthService from '../utils/AuthService.jsx';
 // import Navigation from './nav.jsx';
 // import Auth0Lock from '../../node_modules/auth0-lock';
@@ -8,10 +8,10 @@ import {View, ScrollView, Text, Image, Linking} from 'react-native';
 const House = require('../assets/house.png');
 const Connect = require('../assets/connect.png');
 const MeetUp = require('../assets/meetUp.png');
-const Daisy = require('../assets/daisy.png');
-const Kat = require('../assets/kat.png');
-const Jarrett = require('../assets/jarrett.png');
-const Ivey = require('../assets/ivey.png');
+const Erica = require('../assets/erica.png');
+const Lucas = require('../assets/lucas.png');
+const Philip = require('../assets/philip.png');
+const Kevin = require('../assets/kevin.png');
 
 // Stateless Components
 
@@ -19,11 +19,12 @@ const Ivey = require('../assets/ivey.png');
 class IconItem extends Component {
   constructor(props) {
     super(props);
-  };
+  }
+
   render() {
     return (
       <View className='col-md-4'>
-        <Image source={this.props.url} onPress={()=>Linking.openURL('http://www.google.com')} />
+        <Image source={this.props.url} />
         <Text>{this.props.display}</Text>
         <Text>{this.props.info}</Text>
       </View>
@@ -35,11 +36,18 @@ class IconItem extends Component {
 class TeamIcon extends Component {
   constructor(props) {
     super(props);
-  };
+  }
+  // _onPressButton() {
+  //   Linking.openURL(this.props.link).catch(err => console.log('an error occurred', err));
+  // }
+  // <TouchableHightlight onPress={() => this._onPressButton()}>
+  // </TouchableHightlight>
   render() {
     return (
-      <View className='col-md-3' >
-        <Image source={this.props.url} />
+      <View >
+
+        <Image style={styles.teamPhotos} source={this.props.url} />
+
         <Text>{this.props.display}</Text>
       </View>
     );
@@ -96,24 +104,24 @@ class Home extends Component {
         <View>
           <View>
             <TeamIcon
-              url={Daisy}
-              display={'Daisy Good'}
-              link={'https://www.linkedin.com/in/daisy-good-49a2a46a'}
+              url={Erica}
+              display={'Erica Fanelle'}
+              link={'https://www.linkedin.com/in/erica-fanelle'}
             />
             <TeamIcon
-              url={Kat}
-              display={'Kat Gurdak'}
-              link={'https://www.linkedin.com/in/katgurdak'}
+              url={Lucas}
+              display={'Lucas Hawes'}
+              link={'https://www.linkedin.com/in/lucashawes'}
             />
             <TeamIcon
-              url={Jarrett}
-              display={'Jarrett Kennedy'}
-              link={'https://www.linkedin.com/in/jarrettk'}
+              url={Philip}
+              display={'Philip Dorin'}
+              link={'https://www.linkedin.com/in/philip-dorin-0705a3b3'}
             />
             <TeamIcon
-              url={Ivey}
-              display={'Ivey Topaz'}
-              link={'https://www.linkedin.com/in/ivey-topaz-765a85124'}
+              url={Kevin}
+              display={'Kevin Kim'}
+              link={'https://www.linkedin.com/in/kevin-ji-kim'}
             />
           </View>
         </View>
@@ -128,5 +136,16 @@ class Home extends Component {
 //   location: T.object,
 //   auth: T.instanceOf(AuthService)
 // };
+
+const styles= {
+  teamPhotos: {
+    paddingTop: 40,
+    paddingBottom: 40,
+    height: 100,
+    width:100
+  }
+}
+
+
 
 module.exports = Home;
