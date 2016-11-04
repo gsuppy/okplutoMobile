@@ -25,7 +25,7 @@ import Profile from './src/components/profile'
 // import UsersPage from './src/components/UsersPage';
 
 // import UsersPage from './src/components/UsersPage';
-// import Events from './src/components/Events';
+import Events from './src/components/events';
 
 
 import React, { Component } from 'react';
@@ -63,7 +63,7 @@ export default class OKPlutoMobile extends Component {
     return (
       <Navigator
       style={{backgroundColor: 'lightgreen'}}
-      initialRoute={{name:'Home'}}
+      initialRoute={{name:'Events'}}
       renderScene={this.renderScene}
       />
     )
