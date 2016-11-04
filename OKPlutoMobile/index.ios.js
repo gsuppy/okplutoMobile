@@ -6,7 +6,7 @@
 // import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 // import AuthService from './utils/AuthService.jsx';
 // import $ from 'jquery';
-import Home from './components/home.jsx';
+
 // import { auth0 } from '../config/auth0.js';
 // import UsersPage from './components/usersPage.jsx'
 // import Container from './components/container.jsx'
@@ -17,52 +17,53 @@ import Home from './components/home.jsx';
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // import InfoDrawer from './components/infoDrawer.jsx'
 
+import Home from './src/components/home';
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
+// import Router from 'react-native-routing';
 
 export default class OKPlutoMobile extends Component {
-  // render() {
-  //   return (
-  //     <View style={styles.container}>
-  //       <Text style={styles.welcome}>
-  //         Team Hermes for the Win!
-  //       </Text>
-  //       <Text style={styles.instructions}>
-  //         Transforming OKPluto!
-  //       </Text>
-  //       <Text style={styles.instructions}>
-  //         Let's do this!
-  //       </Text>
-  //     </View>
-  //   );
-  // }
-  render() {
+  renderScene(route, navigator) {
+    const { name, passProps} = route;
+    if (name === 'Home') {
+      return <Home navigator={navigator} />
+    }
+  }
 
+  render() {
+    return (
+      <Navigator
+      style={{backgroundColor: 'lightgreen'}}
+      initialRoute={{name:'Home'}}
+      renderScene={this.renderScene}
+      />
+    )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF',
+//   },
+//   welcome: {
+//     fontSize: 20,
+//     textAlign: 'center',
+//     margin: 10,
+//   },
+//   instructions: {
+//     textAlign: 'center',
+//     color: '#333333',
+//     marginBottom: 5,
+//   },
+// });
 
 AppRegistry.registerComponent('OKPlutoMobile', () => OKPlutoMobile);
