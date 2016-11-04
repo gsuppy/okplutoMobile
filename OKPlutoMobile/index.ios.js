@@ -3,6 +3,19 @@
  * https://github.com/facebook/react-native
  * @flow
  */
+// import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+// import AuthService from './utils/AuthService.jsx';
+// import $ from 'jquery';
+import Home from './components/home.jsx';
+// import { auth0 } from '../config/auth0.js';
+// import UsersPage from './components/usersPage.jsx'
+// import Container from './components/container.jsx'
+// import Profile from './components/profile.jsx'
+// import Events from './components/events.jsx'
+// import ProfileCreation from './components/profileCreation.jsx'
+// import Loading from './components/loading.jsx'
+// import injectTapEventPlugin from 'react-tap-event-plugin';
+// import InfoDrawer from './components/infoDrawer.jsx'
 
 import React, { Component } from 'react';
 import {
@@ -13,20 +26,23 @@ import {
 } from 'react-native';
 
 export default class OKPlutoMobile extends Component {
+  // render() {
+  //   return (
+  //     <View style={styles.container}>
+  //       <Text style={styles.welcome}>
+  //         Team Hermes for the Win!
+  //       </Text>
+  //       <Text style={styles.instructions}>
+  //         Transforming OKPluto!
+  //       </Text>
+  //       <Text style={styles.instructions}>
+  //         Let's do this!
+  //       </Text>
+  //     </View>
+  //   );
+  // }
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Team Hermes for the Win!
-        </Text>
-        <Text style={styles.instructions}>
-          Transforming OKPluto!
-        </Text>
-        <Text style={styles.instructions}>
-          Let's do this!
-        </Text>
-      </View>
-    );
+
   }
 }
 
