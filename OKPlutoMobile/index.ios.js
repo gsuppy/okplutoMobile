@@ -41,10 +41,10 @@ export default class OKPlutoMobile extends Component {
     const { name, passProps } = route;
     if (name === 'Home') {
       return <Home navigator={navigator} />
-<<<<<<< HEAD
-    } else if (name === 'ProfileDisplay') {
-      return <ProfileDisplay navigator={navigator} />
-=======
+
+    // } else if (name === 'ProfileDisplay') {
+      // return <ProfileDisplay navigator={navigator} />
+
     } else if (name === 'Profile') {
       return <Profile navigator={navigator} />
     } else if (name === 'Events') {
@@ -53,7 +53,6 @@ export default class OKPlutoMobile extends Component {
       return <ProfileCreation navigator={navigator} />
     } else if (name === 'UsersPage') {
       return <UsersPage navigator={navigator} />
->>>>>>> update routes with navigator for different views.  Added our photos and info
     }
   }
 
