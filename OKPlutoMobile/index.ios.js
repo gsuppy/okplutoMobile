@@ -18,13 +18,13 @@
 // import InfoDrawer from './components/infoDrawer.jsx'
 
 import Home from './src/components/home';
-<<<<<<< HEAD
-import ProfileDisplay from './src/components/profile'
-=======
+
+import Profile from './src/components/profile'
+
 // import UsersPage from './src/components/UsersPage';
 // import Events from './src/components/Events';
 // import Profile from './src/components/Profile';
->>>>>>> update routes with navigator for different views.  Added our photos and info
+
 import React, { Component } from 'react';
 import {
   AppRegistry,

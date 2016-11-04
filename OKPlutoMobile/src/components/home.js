@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component, PropTypes as T } from 'react';
-import {View, ScrollView, Text, Image, Linking, TouchableHightlight} from 'react-native';
+import {View, ScrollView, Text, Image, Linking, TouchableHighlight} from 'react-native';
 // import AuthService from '../utils/AuthService.jsx';
 // import Navigation from './nav.jsx';
 // import Auth0Lock from '../../node_modules/auth0-lock';
@@ -37,19 +37,26 @@ class TeamIcon extends Component {
   constructor(props) {
     super(props);
   }
-  // _onPressButton() {
-  //   Linking.openURL(this.props.link).catch(err => console.log('an error occurred', err));
-  // }
-  // <TouchableHightlight onPress={() => this._onPressButton()}>
-  // </TouchableHightlight>
-  render() {
+
+  _onPressButton(url) {
+    console.log(url);
+    Linking.openURL(url).catch(err => console.log('an error occurred', err));
+  }
+
+// <TouchableHightlight onPress={this._onPressButton}>
+//  </TouchableHightlight>
+ render() {
     return (
-      <View >
 
-        <Image style={styles.teamPhotos} source={this.props.url} />
+      <View>
+        <TouchableHighlight onPress={() => this._onPressButton(this.props.link)}>
 
+        <Image style={styles.teamPhotos} source={this.props.url}/>
+
+        </TouchableHighlight>
         <Text>{this.props.display}</Text>
       </View>
+
     );
   };
 };
