@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react-native';
 
-// ajax call to get latitude and longitude of an address
+// fetch call to get latitude and longitude of an address
 const getLatLng = function(address) {
   fetch("https://tranquil-tundra-43211.herokuapp.com/api/geocode?loc=" + address)
     .then ( response => response.json());

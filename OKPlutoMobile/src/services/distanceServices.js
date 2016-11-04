@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react-native';
 
-// fetch call to get distance btwn two locations
+// fetch  call to get distance btwn two locations
 const getDistance = function(origin, destination) {
   fetch("https://tranquil-tundra-43211.herokuapp.com/api/distance"), {
     method: 'POST',
