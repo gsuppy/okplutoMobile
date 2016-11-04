@@ -1,6 +1,8 @@
 import React, { Component, PropTypes as T } from 'react';
 import { View, ScrollView, Text, Image, Linking } from 'react-native';
-import { getEvents } from '../services/eventServices.js'
+import { getEvents } from '../services/eventServices.js';
+import EventList from './eventList.js';
+
 
 class Events extends Component {
   constructor(props) {
@@ -11,38 +13,38 @@ class Events extends Component {
       displayedEvents: [],
       searchSource: []
     };
-    // this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
 // Live update events displayed on page based on user search input
 // TODO: need a debounce function so this doesn't fire contantly
 // as user types
 
-// handleChange(text, userNames) {
-//     var displayedEvents = this.state.events.filter(event => {
-//       if(event.eventname && event.loc) {
-//         for (var key in event) {
-//           if (event[key] === undefined) {
-//             event[key] = '';
-//           }
-//         }
-//         var re = new RegExp(text, "gi")
-//         return event.eventname.match(re) || event.loc.match(re)
-//       }
-//     })
-//     this.setState({displayedEvents: displayedEvents})
-//   }
+handleChange(text, userNames) {
+    let displayedEvents = this.state.events.filter(event => {
+      if(event.eventname && event.loc) {
+        for (let key in event) {
+          if (event[key] === undefined) {
+            event[key] = '';
+          }
+        }
+        let re = new RegExp(text, "gi")
+        return event.eventname.match(re) || event.loc.match(re)
+      }
+    });
+    this.setState({displayedEvents: displayedEvents})
+  }
 
 render () {
     return (
       <ScrollView>
 
         <Text>Local Events</Text>
-        <View className="row">
+        <View>
 
         </View>
         <View style={{marginBottom: 20}}>
-
+          <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
         </View>
 
       </ScrollView>
@@ -50,7 +52,7 @@ render () {
   }
 }
 
-  //     line 45        <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo}/>
+  //     line 45
   //  line 42             <AutoComplete style={{marginLeft: '75%'}}
             //      floatingLabelText="Search Events"
             //      filter={AutoComplete.fuzzyFilter}
