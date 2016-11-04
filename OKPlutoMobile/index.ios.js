@@ -18,6 +18,7 @@
 // import InfoDrawer from './components/infoDrawer.jsx'
 
 import Home from './src/components/home';
+import ProfileDisplay from './src/components/profile'
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -33,6 +34,8 @@ export default class OKPlutoMobile extends Component {
     const { name, passProps} = route;
     if (name === 'Home') {
       return <Home navigator={navigator} />
+    } else if (name === 'ProfileDisplay') {
+      return <ProfileDisplay navigator={navigator} />
     }
   }
 
