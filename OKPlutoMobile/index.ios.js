@@ -18,16 +18,11 @@
 // import InfoDrawer from './components/infoDrawer.jsx'
 
 import Home from './src/components/home';
-
-
 import Profile from './src/components/profile'
-
+import UsersPage from './src/components/usersPage'
 // import UsersPage from './src/components/UsersPage';
-
 // import UsersPage from './src/components/UsersPage';
-// import Events from './src/components/Events';
-
-
+import Events from './src/components/events';
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -45,9 +40,6 @@ export default class OKPlutoMobile extends Component {
     if (name === 'Home') {
       return <Home navigator={navigator} />
 
-    // } else if (name === 'ProfileDisplay') {
-      // return <ProfileDisplay navigator={navigator} />
-
     } else if (name === 'Profile') {
       return <Profile navigator={navigator} />
     } else if (name === 'Events') {
@@ -63,7 +55,7 @@ export default class OKPlutoMobile extends Component {
     return (
       <Navigator
       style={{backgroundColor: 'lightgreen'}}
-      initialRoute={{name:'Home'}}
+      initialRoute={{name:'UsersPage'}}
       renderScene={this.renderScene}
       />
     )
