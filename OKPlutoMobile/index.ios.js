@@ -26,7 +26,7 @@ import ProfileCreation from './src/components/profileCreation'
 // import UsersPage from './src/components/UsersPage';
 // import UsersPage from './src/components/UsersPage';
 
-import Events from './src/components/Events';
+import Events from './src/components/events';
 
 //Lucas
 var Auth0Lock = require('react-native-lock');
@@ -64,7 +64,7 @@ export default class OKPlutoMobile extends Component {
     } else if (name === 'Profile') {
       return <Profile navigator={navigator} />
     } else if (name === 'Events') {
-      return <Events navigator={navigator} />
+      return <Events navigator={navigator} {...passProps}/>
     } else if (name === 'ProfileCreation') {
       return <ProfileCreation navigator={navigator} />
     } else if (name === 'UsersPage') {
