@@ -4,8 +4,9 @@
 
 "use strict";
 
-import React from 'react';
-import { View, ListView, Text, Linking, TouchableHighlight } from 'react-native';
+import React, { Component } from 'react';
+import { View, ListView, Text, TouchableHighlight, Navigator, NativeModules } from 'react-native';
+import { COLOR, ThemeProvider, Toolbar } from '../node_modules/react-native-material-ui';
 
 const Footer = (props) => (
   <View>
