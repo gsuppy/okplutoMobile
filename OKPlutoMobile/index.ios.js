@@ -25,7 +25,25 @@ import ProfileCreation from './src/components/profileCreation'
 
 // import UsersPage from './src/components/UsersPage';
 // import UsersPage from './src/components/UsersPage';
-import Events from './src/components/events';
+
+import Events from './src/components/Events';
+
+//Lucas
+var Auth0Lock = require('react-native-lock');
+var authobj = require('./config/auth0');
+var lock = new Auth0Lock(authobj);
+
+//Lucas
+lock.show({}, (err, profile, token) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  // Authentication worked!
+  console.log(profile);
+  console.log(token);
+});
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -51,7 +69,7 @@ export default class OKPlutoMobile extends Component {
       return <ProfileCreation navigator={navigator} />
     } else if (name === 'UsersPage') {
       return <UsersPage navigator={navigator} />
-    } 
+    }
   }
 
   render() {
