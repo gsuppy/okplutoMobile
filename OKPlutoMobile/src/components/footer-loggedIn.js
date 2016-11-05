@@ -12,13 +12,13 @@ const FooterLoggedIn = (props) => (
     <Text>Ok Pluto</Text>
     <View>
       <ListView>
-        <TouchableHighlight onClick={() => this.props.navigator.push('/users')}>
+        <TouchableHighlight onClick={() => this.props.navigator.push({name: 'UsersPage'})}>
           <Text>Users</Text>
         </TouchableHighlight>
-        <TouchableHighlight onClick={() => this.props.navigator.push('/events')}>
+        <TouchableHighlight onClick={() => this.props.navigator.push({name: 'Events'})}>
           <Text>Events</Text>
         </TouchableHighlight>
-        <TouchableHighlight onClick={() => this.props.navigator.push('/profile')}>
+        <TouchableHighlight onClick={() => this.props.navigator.push({name: 'Profile'})}>
           <Text>Profile</Text>
         </TouchableHighlight>
       </ListView>
