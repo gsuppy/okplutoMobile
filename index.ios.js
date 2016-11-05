@@ -83,6 +83,13 @@ export default class OKPlutoMobile extends Component {
   }
 }
 
+const styles={
+  viewStyle: {
+    paddingTop: 15,
+    backgroundColor:'lightgreen';
+  }
+}
+
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
