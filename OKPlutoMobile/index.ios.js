@@ -64,7 +64,7 @@ export default class OKPlutoMobile extends Component {
     } else if (name === 'Profile') {
       return <Profile navigator={navigator} />
     } else if (name === 'Events') {
-      return <Events navigator={navigator} />
+      return <Events navigator={navigator} {...passProps}/>
     } else if (name === 'ProfileCreation') {
       return <ProfileCreation navigator={navigator} />
     } else if (name === 'UsersPage') {

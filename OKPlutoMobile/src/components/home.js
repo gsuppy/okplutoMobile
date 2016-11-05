@@ -77,7 +77,6 @@ class Home extends Component {
   render () {
     return (
       <ScrollView>
-
         <View>
           <View>
             <Text>Ok Pluto</Text>
