@@ -18,8 +18,11 @@
 // import InfoDrawer from './components/infoDrawer.jsx'
 
 import Home from './src/components/home';
-import Profile from './src/components/profile'
-import UsersPage from './src/components/usersPage'
+import Profile from './src/components/profile';
+import UsersPage from './src/components/usersPage';
+import ProfileCreation from './src/components/profileCreation'
+
+
 // import UsersPage from './src/components/UsersPage';
 // import UsersPage from './src/components/UsersPage';
 import Events from './src/components/events';
@@ -48,7 +51,7 @@ export default class OKPlutoMobile extends Component {
       return <ProfileCreation navigator={navigator} />
     } else if (name === 'UsersPage') {
       return <UsersPage navigator={navigator} />
-    }
+    } 
   }
 
   render() {
