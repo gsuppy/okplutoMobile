@@ -1,6 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import {View, ScrollView, Text, Image, Linking} from 'react-native';
+import ProfileEditDialog from './profileEditDialog'
 
 
 // <Image source={this.props.userInfo.profilepic} />
@@ -58,9 +59,9 @@ class ProfileDisplay extends Component {
             <Text>Breed: </Text>
             <Text>Age: </Text>
 
-          <Text>
-            We Need To add an Edit User Profile Button
-          </Text>
+          <View>
+            <ProfileEditDialog />
+          </View>
 
         </View>
 
