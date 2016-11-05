@@ -26,7 +26,7 @@ import ProfileCreation from './src/components/profileCreation'
 // import UsersPage from './src/components/UsersPage';
 // import UsersPage from './src/components/UsersPage';
 
-import Events from './src/components/Events';
+import Events from './src/components/events';
 
 //Lucas
 var Auth0Lock = require('react-native-lock');

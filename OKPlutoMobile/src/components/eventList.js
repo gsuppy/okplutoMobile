@@ -4,7 +4,7 @@
 // events page and rows of 3 for the profile
 // page, and passes event info to EventDisplay
 
-import React from ('react');
+import React from 'react';
 import { View, ScrollView, Text, Image, Linking } from 'react-native';
 // import EventDisplay from ('./eventDisplay.js');
 // import Loading from './loading.jsx'
