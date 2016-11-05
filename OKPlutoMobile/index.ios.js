@@ -19,10 +19,9 @@
 
 import Home from './src/components/home';
 import Profile from './src/components/profile';
-
 import UsersPage from './src/components/usersPage';
+import ProfileCreation from './src/components/profileCreation'
 
-import ProfileCreation from './src/components/profileCreation';
 
 // import UsersPage from './src/components/UsersPage';
 // import UsersPage from './src/components/UsersPage';
