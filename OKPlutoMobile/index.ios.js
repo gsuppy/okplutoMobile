@@ -21,6 +21,7 @@ import Home from './src/components/home';
 
 
 import Profile from './src/components/profile'
+import ProfileCreation from './src/components/profileCreation'
 
 // import UsersPage from './src/components/UsersPage';
 
@@ -56,7 +57,7 @@ export default class OKPlutoMobile extends Component {
       return <ProfileCreation navigator={navigator} />
     } else if (name === 'UsersPage') {
       return <UsersPage navigator={navigator} />
-    }
+    } 
   }
 
   render() {
