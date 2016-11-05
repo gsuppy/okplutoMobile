@@ -2,7 +2,7 @@ import React, { Component, PropTypes as T } from 'react';
 import { View, ScrollView, Text, Image, Linking } from 'react-native';
 import { getEvents } from '../services/eventServices.js';
 import EventList from './eventList.js';
-
+import Banner from './banner'
 
 class Events extends Component {
   constructor(props) {
@@ -38,8 +38,7 @@ handleChange(text, userNames) {
 render () {
     return (
       <ScrollView>
-
-        <Text>Local Events</Text>
+        <Banner display={'Local Events'} />
         <View>
 
         </View>

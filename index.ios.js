@@ -20,17 +20,20 @@
 import Home from './src/components/home';
 import Profile from './src/components/profile';
 import UsersPage from './src/components/usersPage';
-import ProfileCreation from './src/components/profileCreation'
-
-
-// import UsersPage from './src/components/UsersPage';
-// import UsersPage from './src/components/UsersPage';
-
+import ProfileCreation from './src/components/profileCreation';
+import Auth0Lock from 'react-native-lock';
+import authobj from './config/auth0'
 import Events from './src/components/events';
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  Navigator
+} from 'react-native';
 
 //Lucas
-var Auth0Lock = require('react-native-lock');
-var authobj = require('./config/auth0');
 var lock = new Auth0Lock(authobj);
 
 //Lucas
@@ -44,14 +47,6 @@ lock.show({}, (err, profile, token) => {
   console.log(token);
 });
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Navigator
-} from 'react-native';
 // import Router from 'react-native-routing';
 
 export default class OKPlutoMobile extends Component {
@@ -60,15 +55,14 @@ export default class OKPlutoMobile extends Component {
     const { name, passProps } = route;
     if (name === 'Home') {
       return <Home navigator={navigator} />
-
     } else if (name === 'Profile') {
-      return <Profile navigator={navigator} />
+      return <Profile navigator={navigator} {...passProps} />
     } else if (name === 'Events') {
       return <Events navigator={navigator} {...passProps}/>
-    } else if (name === 'ProfileCreation') {
-      return <ProfileCreation navigator={navigator} />
     } else if (name === 'UsersPage') {
       return <UsersPage navigator={navigator} />
+    } else if (name === 'ProfileCreation') {
+      return <ProfileCreation navigator={navigator} />
     }
   }
 
@@ -76,7 +70,7 @@ export default class OKPlutoMobile extends Component {
     return (
       <Navigator
       style={{backgroundColor: 'lightgreen'}}
-      initialRoute={{name:'Home'}}
+      initialRoute={{name:'Profile'}}
       renderScene={this.renderScene}
       />
     )
