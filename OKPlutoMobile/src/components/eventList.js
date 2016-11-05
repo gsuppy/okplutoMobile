@@ -27,36 +27,36 @@ class EventList extends React.Component {
   }
 
   render() {
-    let rowLength = 4;
-    let className = "col-md-3 text-center";
-    if (this.props.type === "profile") {
-      rowLength = 3;
-      className = "col-md-4 text-center"
-    }
-    if (this.props.events.length) {
-      let events = this.props.events
-      let rows = [];
-      let row = [];
-      for (let i = 0; i < events.length; i++) {
-        if (i % rowLength === 0 && row.length > 0) {
-          rows.push(row);
-          row = [];
-        }
-        row.push(events[i]);
-        if (i === events.length - 1 && row.length > 0) {
-          rows.push(row);
-        }
-      }
-      return (
-        <View className = "container userList">
-          {
-            rows.map(row => (
-              <Row row={row} userInfo={this.props.userInfo} class={className}/>
-            ))
-          }
-      </View>
-      )
-    } else if (this.props.noEvents) {
+    // let rowLength = 4;
+    // let className = "col-md-3 text-center";
+    // if (this.props.type === "profile") {
+    //   rowLength = 3;
+    //   className = "col-md-4 text-center"
+    // }
+    // if (this.props.events.length) {
+    //   let events = this.props.events
+    //   let rows = [];
+    //   let row = [];
+    //   for (let i = 0; i < events.length; i++) {
+    //     if (i % rowLength === 0 && row.length > 0) {
+    //       rows.push(row);
+    //       row = [];
+    //     }
+    //     row.push(events[i]);
+    //     if (i === events.length - 1 && row.length > 0) {
+    //       rows.push(row);
+    //     }
+    //   }
+    //   return (
+    //     <View className = "container userList">
+    //       {
+    //         rows.map(row => (
+    //           <Row row={row} userInfo={this.props.userInfo} class={className}/>
+    //         ))
+    //       }
+    //   </View>
+    //   )
+    // } else if (this.props.noEvents) {
       return (
         <Text className="middle">No Events to Show</Text>
       )
@@ -64,7 +64,7 @@ class EventList extends React.Component {
     //   return (
     //     <Loading />
     //   )
-    }
+    // }
   }
 };
 

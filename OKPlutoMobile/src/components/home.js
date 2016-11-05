@@ -27,6 +27,9 @@ class IconItem extends Component {
         <Image source={this.props.url} />
         <Text>{this.props.display}</Text>
         <Text>{this.props.info}</Text>
+        if({this.props.link}) {
+          console.log('lets test this')
+        }
       </View>
     );
   };
