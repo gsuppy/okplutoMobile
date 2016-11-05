@@ -27,9 +27,6 @@ class IconItem extends Component {
         <Image source={this.props.url} />
         <Text>{this.props.display}</Text>
         <Text>{this.props.info}</Text>
-        if({this.props.link}) {
-          console.log('lets test this')
-        }
       </View>
     );
   };
@@ -67,6 +64,15 @@ class TeamIcon extends Component {
 // component for the home page
 //line 59 <Navigation auth={this.props.auth}/>
 class Home extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  _navigate() {
+    this.props.navigator.push({
+      name: 'Events',
+    })
+  }
 
   render () {
     return (
@@ -79,6 +85,10 @@ class Home extends Component {
             <Text>for your best friend</Text>
           </View>
         </View>
+
+        <TouchableHighlight underlayColor='darkgreen' onPress={ () => this._navigate() }>
+          <Text>Check out Events!</Text>
+        </TouchableHighlight>
 
         <View className='row section-heading'>
           <Text>Get to know fellow dog owners in your area</Text>
