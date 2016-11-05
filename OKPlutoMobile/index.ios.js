@@ -58,7 +58,7 @@ export default class OKPlutoMobile extends Component {
     return (
       <Navigator
       style={{backgroundColor: 'lightgreen'}}
-      initialRoute={{name:'UsersPage'}}
+      initialRoute={{name:'Home'}}
       renderScene={this.renderScene}
       />
     )
