@@ -44,11 +44,17 @@ const validate = values => {
   return errors
 }
 
+  _navigate(path) {
+    this.props.navigator.push({
+      name: path,
+    })
+  }
+
 class ProfileEditDialog extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: this.props.userInfo,
+      user: this.props.profile,
       errorText: {},
       open: false
     };

@@ -113,6 +113,14 @@ class Home extends Component {
           <Text>Get to know fellow dog owners in your area</Text>
           </View>
 
+          <View style={{alignItems:'center'}}>
+            <TouchableHighlight underlayColor='darkblue' onPress={ () => this._navigate('Profile') }>
+              <Text>Check out your Profile!</Text>
+            </TouchableHighlight>
+          <Text>Get to know fellow dog owners in your area</Text>
+          </View>
+
+
           <View>
             <View style={{flexDirection:'row', justifyContent:'space-around'}}>
               <IconItem

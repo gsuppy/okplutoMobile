@@ -4,7 +4,6 @@ import {View, ScrollView, Text, Image, Linking} from 'react-native';
 import ProfileEditDialog from './profileEditDialog'
 
 
-// <Image source={this.props.userInfo.profilepic} />
 // {this.props.userInfo.firstname} {this.props.userInfo.lastname}
 // {this.props.userInfo.loc}
 // <Image source={this.props.userInfo.picLink} alt="Pic"/>
@@ -23,9 +22,10 @@ class ProfileDisplay extends Component {
       <ScrollView>
 
         <View>
-          <Text> 
-            This is where the profilepic will go 
-          </Text>
+          <Text> Profile Picture </Text>
+          <Image 
+          style={{width:50,height:50}}
+          source={{uri:this.props.profile.picture}} />
         </View>
 
         <View>
@@ -36,15 +36,12 @@ class ProfileDisplay extends Component {
             </Text>
           </View>
 
-          <Text>Name: Have to get user name from props</Text>
 
-          <Text>Location: Have to get location from props</Text>
+          <Text>Name:{this.props.profile.name}</Text>
+          <Text>Location: Have to get location from profile Creation props - could hard code loactions if we want to</Text>
   
           
           <View>
-            <Text>
-              This will be a pic of You
-            </Text>
           </View> 
           
       
