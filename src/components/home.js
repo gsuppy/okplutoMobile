@@ -4,7 +4,8 @@ import {View, ScrollView, Text, Image, Linking, TouchableHighlight} from 'react-
 // import AuthService from '../utils/AuthService.jsx';
 // import Navigation from './nav.jsx';
 // import Auth0Lock from '../../node_modules/auth0-lock';
-// import Footer from './footer.jsx';
+import Footer from './footer';
+
 const House = require('../assets/house.png');
 const Connect = require('../assets/connect.png');
 const MeetUp = require('../assets/meetUp.png');

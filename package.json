@@ -12,6 +12,7 @@
     "react-native-autocomplete-input": "^2.0.0",
     "react-native-lock": "^0.4.0",
     "react-native-material-ui": "^1.3.4",
+    "react-native-navbar": "^1.5.4",
     "react-native-vector-icons": "^3.0.0"
   },
   "jest": {
