@@ -12,6 +12,7 @@ const Erica = require('../assets/erica.png');
 const Lucas = require('../assets/lucas.png');
 const Philip = require('../assets/philip.png');
 const Kevin = require('../assets/kevin.png');
+const cover = require('../assets/cover2.jpg');
 
 // Stateless Components
 
@@ -21,14 +22,34 @@ class IconItem extends Component {
     super(props);
   }
 
+  _onPressButton(url) {
+  console.log(url);
+  Linking.openURL(url).catch(err => console.log('an error occurred', err));
+  }
+
   render() {
-    return (
-      <View className='col-md-4'>
-        <Image source={this.props.url} />
+    if (this.props.link){
+      console.log('testing');
+      return (
+      <View style={styles.iconView}>
+      <TouchableHighlight onPress={() => this._onPressButton(this.props.link)}>
+        <Image style={styles.iconItems} source={this.props.url} />
+      </TouchableHighlight>
         <Text>{this.props.display}</Text>
         <Text>{this.props.info}</Text>
       </View>
-    );
+      )
+    } else {
+      return (
+      <View style={styles.iconView}>
+        <Image style={styles.iconItems} source={this.props.url} />
+        <Text>{this.props.display}</Text>
+        <Text>{this.props.info}</Text>
+      </View>
+    )
+
+    }
+
   };
 };
 
@@ -43,12 +64,10 @@ class TeamIcon extends Component {
     Linking.openURL(url).catch(err => console.log('an error occurred', err));
   }
 
-// <TouchableHightlight onPress={this._onPressButton}>
-//  </TouchableHightlight>
  render() {
     return (
 
-      <View>
+      <View style={styles.teamIconView}>
         <TouchableHighlight onPress={() => this._onPressButton(this.props.link)}>
 
         <Image style={styles.teamPhotos} source={this.props.url}/>
@@ -77,24 +96,23 @@ class Home extends Component {
   render () {
     return (
       <ScrollView>
-        <View>
-          <View>
-            <Text>Ok Pluto</Text>
-            <Text>Online playground</Text>
-            <Text>for your best friend</Text>
+        <View >
+          <View style={{alignItems: 'center'}}>
+            <Text style={styles.heading}>Ok Pluto</Text>
+            <Text>An online playground for your best friend</Text>
           </View>
+            <Image style={{height:200, width: 500}} source={cover}/>
+
         </View>
-
-        <TouchableHighlight underlayColor='darkgreen' onPress={ () => this._navigate() }>
-          <Text>Check out Events!</Text>
-        </TouchableHighlight>
-
-        <View className='row section-heading'>
+        <View style={{alignItems:'center'}}>
+          <TouchableHighlight underlayColor='darkgreen' onPress={ () => this._navigate() }>
+            <Text>Check out Events!</Text>
+          </TouchableHighlight>
           <Text>Get to know fellow dog owners in your area</Text>
         </View>
 
         <View>
-          <View>
+          <View style={{flexDirection:'row', justifyContent:'space-around'}}>
             <IconItem
               url={Connect}
               display={'CONNECT'}
@@ -107,6 +125,8 @@ class Home extends Component {
               info={'We make it easy for you to set up walks and dog park meet ups with other local dog owners'}
               // onTouchTap={this.props.auth.signup.bind(this)}
             />
+          </View>
+          <View style={{ alignItems:'center'}}>
             <IconItem
               url={House}
               display={'ADOPT A DOG'}
@@ -116,12 +136,10 @@ class Home extends Component {
           </View>
         </View>
 
-        <View className='row section-heading alt'>
-          <Text>Our Development Team</Text>
-        </View>
 
-        <View>
-          <View>
+        <View style={styles.team}>
+          <Text style={styles.centered}>Our Development Team</Text>
+          <View style={styles.teamView}>
             <TeamIcon
               url={Erica}
               display={'Erica Fanelle'}
@@ -132,6 +150,8 @@ class Home extends Component {
               display={'Lucas Hawes'}
               link={'https://www.linkedin.com/in/lucashawes'}
             />
+            </View>
+            <View style={styles.teamView}>
             <TeamIcon
               url={Philip}
               display={'Philip Dorin'}
@@ -161,7 +181,47 @@ const styles= {
     paddingTop: 40,
     paddingBottom: 40,
     height: 100,
-    width:100
+    width:100,
+    borderRadius: 50,
+    borderWidth: .5,
+    // justifyContent:'space-between'
+  },
+  teamView: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  iconView: {
+    width: 150,
+    height: 200,
+    alignItems:'center',
+    paddingBottom: 12,
+    paddingTop:10
+  },
+  iconItems: {
+    height: 100,
+    width:100,
+    borderRadius: 50,
+    borderWidth: 1
+  },
+  centered:{
+    textAlign:'center',
+    fontWeight: 'bold',
+    padding: 8
+  },
+  team: {
+    marginTop: 15,
+    backgroundColor: '#BDBDBD'
+  },
+  teamIconView: {
+    alignItems:'center',
+    paddingBottom: 5
+  },
+  heading: {
+    color: 'darkblue',
+    fontSize: 30,
+    fontWeight:'bold',
+    textAlign:'center'
   }
 }
 
