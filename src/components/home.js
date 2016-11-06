@@ -68,9 +68,9 @@ class Home extends Component {
     super(props);
   }
 
-  _navigate() {
+  _navigate(path) {
     this.props.navigator.push({
-      name: 'Events',
+      name: path,
     })
   }
 
@@ -86,6 +86,10 @@ class Home extends Component {
         </View>
 
         <TouchableHighlight underlayColor='darkgreen' onPress={ () => this._navigate() }>
+          <Text>Check out Events!</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight underlayColor='darkgreen' onPress={ () => this._navigate('Profile') }>
           <Text>Check out Events!</Text>
         </TouchableHighlight>
 

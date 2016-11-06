@@ -70,8 +70,11 @@ const addPerson = function(eventId, userId) {
 
 // Get all events the user is attending or created
 const searchEvents = function(dbId) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/events?dbId=${dbId})")
+  return fetch(`https://tranquil-tundra-43211.herokuapp.com/api/events?dbId=${dbId})`)
     .then( response => response.json())
+    .catch((error) => {
+      console.error(error);
+    });
 };
 //   dbId = dbId || localStorage.getItem('mongoUserId');
 //   return new Promise((resolve, reject) => {

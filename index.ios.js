@@ -22,6 +22,9 @@ import Profile from './src/components/profile';
 import UsersPage from './src/components/usersPage';
 import ProfileCreation from './src/components/profileCreation'
 
+//Authentication with Auth0
+
+
 
 // import UsersPage from './src/components/UsersPage';
 // import UsersPage from './src/components/UsersPage';
@@ -34,14 +37,16 @@ var authobj = require('./config/auth0');
 var lock = new Auth0Lock(authobj);
 
 //Lucas
+const profileObj = {};
+const tokenObj = {};
 lock.show({}, (err, profile, token) => {
   if (err) {
     console.log(err);
     return;
   }
   // Authentication worked!
-  console.log(profile);
-  console.log(token);
+  profileObj = profile;
+  tokenObj = token;
 });
 
 import React, { Component } from 'react';
@@ -62,7 +67,7 @@ export default class OKPlutoMobile extends Component {
       return <Home navigator={navigator} />
 
     } else if (name === 'Profile') {
-      return <Profile navigator={navigator} />
+      return <Profile navigator={navigator} profile={profileObj}/>
     } else if (name === 'Events') {
       return <Events navigator={navigator} {...passProps}/>
     } else if (name === 'ProfileCreation') {
