@@ -17,6 +17,8 @@
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // import InfoDrawer from './components/infoDrawer.jsx'
 
+import uiTheme from './src/theme/theme.js'
+import {ThemeProvider} from 'react-native-material-ui';
 import Home from './src/components/home';
 import Profile from './src/components/profile';
 import UsersPage from './src/components/usersPage';
@@ -75,11 +77,18 @@ export default class OKPlutoMobile extends Component {
   render() {
     return (
       <Navigator
-      style={{backgroundColor: 'lightgreen'}}
+      style={styles.viewStyle}
       initialRoute={{name:'Home'}}
       renderScene={this.renderScene}
       />
     )
+  }
+}
+
+const styles={
+  viewStyle: {
+    paddingTop: 15,
+    backgroundColor:'#B3E5FC'
   }
 }
 
