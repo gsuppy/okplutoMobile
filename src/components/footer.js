@@ -33,7 +33,7 @@ const Footer = (props) => (
   <View>
   <ThemeProvider uiTheme={uiTheme}>
     <Toolbar
-    leftElement=""
+    leftElement="arrow-back"
     />
   </ThemeProvider>
   </View>
