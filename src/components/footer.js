@@ -4,12 +4,17 @@
 
 "use strict";
 
-import React, { Component, Image, TouchableOpacity } from 'react';
-import { View, ListView, Text, TouchableHighlight, Navigator, NativeModules } from 'react-native';
+import React, { Component, Image, TouchableOpacity, PropTypes } from 'react';
+import { View, ListView, Text, TouchableHighlight, Navigator, NativeModules, StyleSheet } from 'react-native';
 import uiTheme from '../theme/theme.js';
 import NavigationBar from 'react-native-navbar';
+import { COLOR, ThemeProvider, Toolbar, Button } from 'react-native-material-ui';
 
-
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: 10,
+    },
+});
 
  /* <View>
     <Text>Ok Pluto</Text>
@@ -31,9 +36,6 @@ import NavigationBar from 'react-native-navbar';
     /* <ActionButton
     /> */
 
-const backArrow = require('../assets/navbar/backArrow.png');
-
-
 const rightButtonConfig = {
   title: 'Next',
   handler: function onNext() {
@@ -53,15 +55,31 @@ const titleConfig = {
 };
 
 // <Image source={{backArrow}}/>
-
-const Footer = (props) => (
-    <View>
+/*    <View>
       <NavigationBar
         title={titleConfig}
         leftButton={leftButtonConfig}
         rightButton={rightButtonConfig}
       />
-    </View>
+    </View> */
+
+const Footer = (props) => (
+
+  <View>
+
+  <ThemeProvider uiTheme={uiTheme}>
+      <Toolbar
+        leftElement="arrow-back"
+        onLeftElementPress={() => this.props.navigator.pop()}
+        centerElement="Navbar"
+        rightElement={{
+            actions: ['edit', 'event', 'verified-user']
+        }}
+      />
+  </ThemeProvider>
+
+  </View>
+
 )
 
 module.exports = Footer;
