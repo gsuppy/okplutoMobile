@@ -4,10 +4,12 @@
 
 "use strict";
 
-import React, { Component } from 'react';
+import React, { Component, Image, TouchableOpacity } from 'react';
 import { View, ListView, Text, TouchableHighlight, Navigator, NativeModules } from 'react-native';
-import { COLOR, ThemeProvider, Toolbar, ActionButton } from 'react-native-material-ui';
 import uiTheme from '../theme/theme.js';
+import NavigationBar from 'react-native-navbar';
+
+
 
  /* <View>
     <Text>Ok Pluto</Text>
@@ -29,14 +31,37 @@ import uiTheme from '../theme/theme.js';
     /* <ActionButton
     /> */
 
+const backArrow = require('../assets/navbar/backArrow.png');
+
+
+const rightButtonConfig = {
+  title: 'Next',
+  handler: function onNext() {
+    alert('Next!');
+  }
+};
+
+const leftButtonConfig = {
+  title: 'Back',
+  handler: function onBack() {
+    alert('Back!');
+  }
+};
+
+const titleConfig = {
+  title: 'Home'
+};
+
+// <Image source={{backArrow}}/>
+
 const Footer = (props) => (
-  <View>
-  <ThemeProvider uiTheme={uiTheme}>
-    <Toolbar
-    leftElement=""
-    />
-  </ThemeProvider>
-  </View>
+    <View>
+      <NavigationBar
+        title={titleConfig}
+        leftButton={leftButtonConfig}
+        rightButton={rightButtonConfig}
+      />
+    </View>
 )
 
 module.exports = Footer;
