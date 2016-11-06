@@ -6,10 +6,10 @@
 
 import React, { Component } from 'react';
 import { View, ListView, Text, TouchableHighlight, Navigator, NativeModules } from 'react-native';
-import { COLOR, ThemeProvider, Toolbar } from '../node_modules/react-native-material-ui';
+import { COLOR, ThemeProvider, Toolbar, ActionButton } from 'react-native-material-ui';
+import uiTheme from '../theme/theme.js';
 
-const Footer = (props) => (
-  <View>
+ /* <View>
     <Text>Ok Pluto</Text>
     <View>
       <ListView>
@@ -24,6 +24,18 @@ const Footer = (props) => (
         </TouchableHighlight>
       </ListView>
     </View>
+  </View> */
+
+    /* <ActionButton
+    /> */
+
+const Footer = (props) => (
+  <View>
+  <ThemeProvider uiTheme={uiTheme}>
+    <Toolbar
+    leftElement=""
+    />
+  </ThemeProvider>
   </View>
 )
 
