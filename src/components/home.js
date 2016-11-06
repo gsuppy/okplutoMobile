@@ -85,7 +85,7 @@ class TeamIcon extends Component {
 //line 59 <Navigation auth={this.props.auth}/>
 class Home extends Component {
   constructor(props){
-    super(props);
+    super(props)
   }
 
   _navigate(path) {
@@ -176,7 +176,7 @@ class Home extends Component {
           </View>
 
         </ScrollView>
-        <Footer />
+        <Footer navigate={this._navigate.bind(this)}/>
       </View>
     );
   };

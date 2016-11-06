@@ -37,6 +37,11 @@ class Profile extends Component {
       value: 'a'
     }
   }
+    _navigate(path) {
+    this.props.navigator.push({
+      name: path,
+    })
+  }
 
 // Load events and divide into Upcoming,
 // Created by this user, and Past categories
@@ -128,7 +133,7 @@ class Profile extends Component {
             <View>
               <EventList type="profile" events={this.state.upcomingEvents} noEvents={this.state.noUpcomingEvents} userInfo={this.props.userInfo}/>
             </View>
-              
+
             <View>
               <EventList type="profile" events={this.state.createdEvents} noEvents={this.state.noCreatedEvents} userInfo={this.props.userInfo}/>
             </View>
@@ -139,7 +144,7 @@ class Profile extends Component {
 
           </View>
         </ScrollView>
-        <Footer />
+        <Footer navigate={this._navigate.bind(this)}/>
       </View>
     )
   }
