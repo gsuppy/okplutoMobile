@@ -11,7 +11,7 @@ import {View, Text, Image, ScrollView} from 'react-native';
 // import MenuItem from 'material-ui/MenuItem';
 // import MyTheme from '../theme/theme.js';
 // import { getDistance } from '../services/distanceServices';
-// import Banner from './banner.jsx';
+import Banner from './banner.js';
 // import FooterLoggedIn from './footer-loggedIn.jsx';
 
 class UsersPage extends Component {
@@ -79,6 +79,7 @@ class UsersPage extends Component {
   render(){
     return(
       <ScrollView>
+        <Banner display={'Users'} />
         <Text> Testing</Text>
       </ScrollView>)
   }

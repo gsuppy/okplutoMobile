@@ -16,7 +16,7 @@ import {View, ScrollView, Text, Image, Linking} from 'react-native';
 // import TextField from 'material-ui/TextField';
 // import { updateUser } from '../services/userServices.js';
 // import { hashHistory } from 'react-router';
-// import ProfileEdit from './profileEdit.jsx';
+import ProfileEdit from './profileEdit.js';
 
 
 // const rValidImage = /^((https?|ftp):)?\/\/.*(jpeg|jpg|png|gif|bmp)$/i
@@ -134,6 +134,7 @@ class ProfileEditDialog extends React.Component {
         </View>
 
         <View>
+          <ProfileEdit />
         </View>
 
       </View>
