@@ -17,14 +17,14 @@
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // import InfoDrawer from './components/infoDrawer.jsx'
 
-import uiTheme from './src/theme/theme.js'
+import uiTheme from './src/theme/theme.js';
 import {ThemeProvider} from 'react-native-material-ui';
 import Home from './src/components/home';
 import Profile from './src/components/profile';
 import UsersPage from './src/components/usersPage';
 import ProfileCreation from './src/components/profileCreation';
 import Auth0Lock from 'react-native-lock';
-import authobj from './config/auth0'
+import authobj from './config/auth0';
 import Events from './src/components/events';
 import React, { Component } from 'react';
 import {
@@ -39,14 +39,16 @@ import {
 var lock = new Auth0Lock(authobj);
 
 //Lucas
+const profileObj = {};
+const tokenObj = {};
 lock.show({}, (err, profile, token) => {
   if (err) {
     console.log(err);
     return;
   }
   // Authentication worked!
-  console.log(profile);
-  console.log(token);
+  profileObj = profile;
+  tokenObj = token;
 });
 
 // import Router from 'react-native-routing';
@@ -58,7 +60,7 @@ export default class OKPlutoMobile extends Component {
     if (name === 'Home') {
       return <Home navigator={navigator} />
     } else if (name === 'Profile') {
-      return <Profile navigator={navigator} {...passProps} />
+      return <Profile navigator={navigator} profile={profileObj}/>
     } else if (name === 'Events') {
       return <Events navigator={navigator} {...passProps}/>
     } else if (name === 'UsersPage') {
@@ -81,7 +83,7 @@ export default class OKPlutoMobile extends Component {
 
 const styles={
   viewStyle: {
-    paddingTop: 15,
+    paddingTop: 20,
     backgroundColor:'#B3E5FC'
   }
 }
