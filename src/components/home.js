@@ -105,9 +105,9 @@ class Home extends Component {
 
         </View>
         <View style={{alignItems:'center'}}>
-        <TouchableHighlight underlayColor='darkgreen' onPress={ () => this._navigate('Events') }>
-          <Text>Check out Events!</Text>
-        </TouchableHighlight>
+          <TouchableHighlight underlayColor='darkgreen' onPress={ () => this._navigate('Events') }>
+            <Text>Check out Events!</Text>
+          </TouchableHighlight>
         <Text>Get to know fellow dog owners in your area</Text>
         </View>
 

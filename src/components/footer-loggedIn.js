@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { View, ListView, Text, TouchableHighlight, Navigator, NativeModules } from 'react-native';
-import { COLOR, ThemeProvider } from '../react-native-material-ui';
+import { COLOR, ThemeProvider } from 'react-native-material-ui';
 
 const FooterLoggedIn = (props) => (
   <View>
