@@ -3,8 +3,11 @@ import React from 'react-native';
 
 // fetch call to get latitude and longitude of an address
 const getLatLng = function(address) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/geocode?loc=" + address)
-    .then ( response => response.json());
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/geocode?loc=" + address)
+    .then(response => response.json())
+    .catch(error => {
+        console.log(error);
+      });
 };
   // return new Promise((resolve, reject) => {
   //   $.ajax({
@@ -18,14 +21,16 @@ const getLatLng = function(address) {
 
 // Update user info
 const updateDb = function(newProps) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/users"), {
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/users", {
     method: 'PUT',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
     body: newProps
-  }
+  }).catch((error) => {
+        console.log(error);
+      });
 };
 //   return new Promise((resolve, reject) => {
 //     $.ajax({
@@ -60,8 +65,11 @@ const updateDb = function(newProps) {
 
 // Get all users from db
 const getUsers = function() {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/users")
-    .then ( response => response.json());
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/users")
+    .then ( response => response.json())
+    .catch((error) => {
+        console.log(error);
+      });
 };
 //   return new Promise((resolve, reject) => {
 //     $.ajax({
@@ -75,7 +83,7 @@ const getUsers = function() {
 
 //POST to API to get mongoDB user info
 const saveUser = function(idToken) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/signin"), {
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/signin", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -84,7 +92,9 @@ const saveUser = function(idToken) {
     body: {
       id: idToken
     }
-  }
+  }).catch((error) => {
+        console.log(error);
+      });
 };
 //   return new Promise((resolve, reject) => {
 //     $.ajax({
@@ -99,8 +109,12 @@ const saveUser = function(idToken) {
 
 // Get current user's info from db
 const findUser = function(dbId) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/users?dbId=${dbId})")
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/users?dbId=${dbId})")
+  // ^^ does there need to be something with backticks here?
     .then( response => response.json())
+    .catch(error => {
+        console.log(error);
+      });
   // dbId = dbId || localStorage.getItem('mongoUserId');
   // return new Promise((resolve, reject) => {
   //   $.ajax({
@@ -114,7 +128,7 @@ const findUser = function(dbId) {
 
 // Delete a user
 const deleteUser = function(dbId) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/users"), {
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/users", {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
@@ -123,7 +137,9 @@ const deleteUser = function(dbId) {
     body: {
       dbId: dbId
     }
-  }
+  }).catch(error => {
+        console.log(error);
+      });
 };
   // dbId = dbId || localStorage.getItem('mongoUserId');
   // return new Promise((resolve, reject) => {
