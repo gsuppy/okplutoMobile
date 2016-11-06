@@ -95,77 +95,80 @@ class Home extends Component {
 
   render () {
     return (
-      <ScrollView>
-        <View >
-          <View style={{alignItems: 'center'}}>
-            <Text style={styles.heading}>Ok Pluto</Text>
-            <Text>An online playground for your best friend</Text>
-          </View>
-          <Image style={{height:200, width: 500}} source={cover}/>
-
-        </View>
-        <View style={{alignItems:'center'}}>
-          <TouchableHighlight underlayColor='darkblue' onPress={ () => this._navigate('Events') }>
-            <Text>Check out Events!</Text>
-          </TouchableHighlight>
-        <Text>Get to know fellow dog owners in your area</Text>
-        </View>
-
-        <View>
-          <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-            <IconItem
-              url={Connect}
-              display={'CONNECT'}
-              info={'OkPluto instantly puts you in touch with other dog lovers from around the world'}
-              // onTouchTap={this.props.auth.signup.bind(this)}
-            />
-            <IconItem
-              url={MeetUp}
-              display={'MEET UP'}
-              info={'We make it easy for you to set up walks and dog park meet ups with other local dog owners'}
-              // onTouchTap={this.props.auth.signup.bind(this)}
-            />
-          </View>
-          <View style={{ alignItems:'center'}}>
-            <IconItem
-              url={House}
-              display={'ADOPT A DOG'}
-              info={'Don\'t have a dog? No worries! Adopt your new best friend at a shelter near you!'}
-              link={'https://www.petfinder.com/animal-shelters-and-rescues/search'}
-            />
-          </View>
-        </View>
-
-
-        <View style={styles.team}>
-          <Text style={styles.centered}>Our Development Team</Text>
-          <View style={styles.teamView}>
-            <TeamIcon
-              url={Erica}
-              display={'Erica Fanelle'}
-              link={'https://www.linkedin.com/in/erica-fanelle'}
-            />
-            <TeamIcon
-              url={Lucas}
-              display={'Lucas Hawes'}
-              link={'https://www.linkedin.com/in/lucashawes'}
-            />
+      <View>
+        <ScrollView>
+          <View >
+            <View style={{alignItems: 'center'}}>
+              <Text style={styles.heading}>Ok Pluto</Text>
+              <Text>An online playground for your best friend</Text>
             </View>
-            <View style={styles.teamView}>
-            <TeamIcon
-              url={Philip}
-              display={'Philip Dorin'}
-              link={'https://www.linkedin.com/in/philip-dorin-0705a3b3'}
-            />
-            <TeamIcon
-              url={Kevin}
-              display={'Kevin Kim'}
-              link={'https://www.linkedin.com/in/kevin-ji-kim'}
-            />
-          </View>
-        </View>
+            <Image style={{height:200, width: 500}} source={cover}/>
 
-      </ScrollView>
+          </View>
+          <View style={{alignItems:'center'}}>
+            <TouchableHighlight underlayColor='darkblue' onPress={ () => this._navigate('Events') }>
+              <Text>Check out Events!</Text>
+            </TouchableHighlight>
+          <Text>Get to know fellow dog owners in your area</Text>
+          </View>
+
+          <View>
+            <View style={{flexDirection:'row', justifyContent:'space-around'}}>
+              <IconItem
+                url={Connect}
+                display={'CONNECT'}
+                info={'OkPluto instantly puts you in touch with other dog lovers from around the world'}
+                // onTouchTap={this.props.auth.signup.bind(this)}
+              />
+              <IconItem
+                url={MeetUp}
+                display={'MEET UP'}
+                info={'We make it easy for you to set up walks and dog park meet ups with other local dog owners'}
+                // onTouchTap={this.props.auth.signup.bind(this)}
+              />
+            </View>
+            <View style={{ alignItems:'center'}}>
+              <IconItem
+                url={House}
+                display={'ADOPT A DOG'}
+                info={'Don\'t have a dog? No worries! Adopt your new best friend at a shelter near you!'}
+                link={'https://www.petfinder.com/animal-shelters-and-rescues/search'}
+              />
+            </View>
+          </View>
+
+
+          <View style={styles.team}>
+            <Text style={styles.centered}>Our Development Team</Text>
+            <View style={styles.teamView}>
+              <TeamIcon
+                url={Erica}
+                display={'Erica Fanelle'}
+                link={'https://www.linkedin.com/in/erica-fanelle'}
+              />
+              <TeamIcon
+                url={Lucas}
+                display={'Lucas Hawes'}
+                link={'https://www.linkedin.com/in/lucashawes'}
+              />
+              </View>
+              <View style={styles.teamView}>
+              <TeamIcon
+                url={Philip}
+                display={'Philip Dorin'}
+                link={'https://www.linkedin.com/in/philip-dorin-0705a3b3'}
+              />
+              <TeamIcon
+                url={Kevin}
+                display={'Kevin Kim'}
+                link={'https://www.linkedin.com/in/kevin-ji-kim'}
+              />
+            </View>
+          </View>
+
+        </ScrollView>
+        <Footer />
+      </View>
     );
   };
 };
