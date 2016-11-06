@@ -4,6 +4,7 @@ import { getEvents } from '../services/eventServices.js';
 import EventList from './eventList.js';
 import Banner from './banner';
 import AutoComplete from 'react-native-autocomplete-input';
+import Footer from './footer';
 
 class Events extends Component {
   constructor(props) {
@@ -38,22 +39,23 @@ handleChange(text, userNames) {
 
 render () {
     return (
+      <View style={{flex:1}}>
       <ScrollView>
-        <Banner display={'Local Events'} />
-        <View>
-          <AutoComplete
-            defaultValue="Search Events"
-            data={this.state.searchSource}
-            onChangeText={this.handleChange}
-            onRender={this.handleChange}
-            />
-
-        </View>
-        <View style={{marginBottom: 20}}>
-          <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
-        </View>
-
+          <Banner display={'Local Events'} />
+          <View>
+            <AutoComplete
+              defaultValue="Search Events"
+              data={this.state.searchSource}
+              onChangeText={this.handleChange}
+              onRender={this.handleChange}
+              />
+            </View>
+            <View style={{marginBottom: 20}}>
+            <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
+          </View>
       </ScrollView>
+      <Footer />
+      </View>
     )
   }
 }
