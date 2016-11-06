@@ -65,7 +65,7 @@ const titleConfig = {
 
 const Footer = (props) => (
 
-  <View>
+  <View style={{flexDirection: 'column', justifyContent: 'flex-end'}}>
 
   <ThemeProvider uiTheme={uiTheme}>
       <Toolbar
