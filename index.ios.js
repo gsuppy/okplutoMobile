@@ -47,6 +47,9 @@ lock.show({}, (err, profile, token) => {
     return;
   }
   // Authentication worked!
+  console.log(profile);
+  console.log(token);
+
   profileObj = profile;
   tokenObj = token;
 });
