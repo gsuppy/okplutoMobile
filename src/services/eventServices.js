@@ -3,8 +3,11 @@ import React from 'react-native';
 
 // Get all events from db
 const getEvents = function () {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/events")
-    .then ( response => response.json());
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/events")
+    .then(response => response.json())
+    .catch((error) => {
+        console.log(error);
+      });
 };
 //   return new Promise((resolve, reject) => {
 //     $.ajax({
@@ -18,7 +21,7 @@ const getEvents = function () {
 
 // Save new event to db
 const saveEvent = function (data) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/events"), {
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/events", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -27,7 +30,9 @@ const saveEvent = function (data) {
     body: {
       data: JSON.stringify(data)
     }
-  }
+  }).catch(error => {
+        console.log(error);
+      });
 };
 //   data.creator = data.creator || localStorage.getItem('mongoUserId');
 //   console.log('about to save ', data)
@@ -44,7 +49,7 @@ const saveEvent = function (data) {
 
 //Add new attendee to db
 const addPerson = function(eventId, userId) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/events/add"), {
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/events/add", {
     method: 'PUT',
     headers: {
       'Accept': 'application/json',
@@ -54,7 +59,9 @@ const addPerson = function(eventId, userId) {
       eventId: eventId,
       userId: userId
     }
-  }
+  }).catch(error => {
+        console.log(error);
+      });
 };
 //   userId = userId || localStorage.getItem('mongoUserId')
 //   return new Promise((resolve, reject) => {
@@ -75,7 +82,7 @@ const searchEvents = function(dbId) {
 
     .then( response => response.json())
     .catch((error) => {
-      console.error(error);
+      console.log(error);
     });
 };
 //   dbId = dbId || localStorage.getItem('mongoUserId');
@@ -91,7 +98,7 @@ const searchEvents = function(dbId) {
 
 // Remove user from an event
 const removePerson = function(eventId, userId) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/events/remove"), {
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/events/remove", {
     method: 'PUT',
     headers: {
       'Accept': 'application/json',
@@ -101,7 +108,9 @@ const removePerson = function(eventId, userId) {
       eventId: eventId,
       userId: userId
     }
-  }
+  }).catch(error => {
+        console.log(error);
+      });
 };
 //   userId = userId || localStorage.getItem('mongoUserId')
 //   return new Promise((resolve, reject) => {
@@ -117,7 +126,7 @@ const removePerson = function(eventId, userId) {
 
 // Delete an event from db
 const deleteEvent = function(eventId) {
-  fetch("https://tranquil-tundra-43211.herokuapp.com/api/events"), {
+  return fetch("https://tranquil-tundra-43211.herokuapp.com/api/events", {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
@@ -126,7 +135,9 @@ const deleteEvent = function(eventId) {
     body: {
       eventId: eventId
     }
-  }
+  }).catch(function(error) {
+    console.log(error);
+  });
 };
 //   return new Promise((resolve, reject) => {
 //     $.ajax({
