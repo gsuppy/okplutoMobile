@@ -39,8 +39,8 @@ handleChange(text, userNames) {
 
 render () {
     return (
+      <View style={{flex:1}}>
       <ScrollView>
-        <View >
           <Banner display={'Local Events'} />
           <View>
             <AutoComplete
@@ -53,9 +53,9 @@ render () {
             <View style={{marginBottom: 20}}>
             <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
           </View>
-          </View>
-        <Footer />
       </ScrollView>
+      <Footer />
+      </View>
     )
   }
 }
