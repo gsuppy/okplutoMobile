@@ -3,9 +3,9 @@
 import React from 'react';
 import {View, ScrollView, Text, Image, Linking} from 'react-native';
 
-const Banner = () => (
+const Banner = (props) => (
   <View style={styles.banner}>
-    <Text style={styles.text}>This should show props.display</Text>
+    <Text style={styles.text}>{props.display}</Text>
   </View>
 )
 
