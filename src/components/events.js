@@ -2,7 +2,8 @@ import React, { Component, PropTypes as T } from 'react';
 import { View, ScrollView, Text, Image, Linking } from 'react-native';
 import { getEvents } from '../services/eventServices.js';
 import EventList from './eventList.js';
-import Banner from './banner'
+import Banner from './banner';
+import AutoComplete from 'react-native-autocomplete-input';
 
 class Events extends Component {
   constructor(props) {
@@ -40,6 +41,12 @@ render () {
       <ScrollView>
         <Banner display={'Local Events'} />
         <View>
+          <AutoComplete
+            defaultValue="Search Events"
+            data={this.state.searchSource}
+            onChangeText={this.handleChange}
+            onRender={this.handleChange}
+            />
 
         </View>
         <View style={{marginBottom: 20}}>
