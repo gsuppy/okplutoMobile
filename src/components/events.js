@@ -18,6 +18,7 @@ class Events extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+
 //initial get request for the events
   componentDidMount() {
     var self = this;
@@ -57,6 +58,7 @@ class Events extends Component {
         name: path,
       });
     }
+
 // Live update events displayed on page based on user search input
 // TODO: need a debounce function so this doesn't fire contantly
 // as user types
