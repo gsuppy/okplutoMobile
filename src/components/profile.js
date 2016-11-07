@@ -95,11 +95,11 @@ class Profile extends Component {
   }
 
   // Changes active / visible tab
-  handleChange(value) {
-    this.setState({
-      value: value
-    });
-  }
+  // handleChange(value) {
+  //   this.setState({
+  //     value: value
+  //   });
+  // }
 
         //     <MuiThemeProvider muiTheme={getMuiTheme(MyTheme)} >
 
@@ -131,15 +131,18 @@ class Profile extends Component {
             </View>
 
             <View>
+          <Text>Upcoming Events</Text>
               <EventList type="profile" events={this.state.upcomingEvents} noEvents={this.state.noUpcomingEvents} userInfo={this.props.userInfo}/>
             </View>
 
             <View>
+            <Text>Events Created by Me</Text>
               <EventList type="profile" events={this.state.createdEvents} noEvents={this.state.noCreatedEvents} userInfo={this.props.userInfo}/>
             </View>
 
             <View>
-              <EventList type="profile" events={this.state.pastEvents} noEvents={this.state.noPastEvents} userInfo={this.props.userInfo}/>
+              <Text>Past Events</Text>
+                <EventList type="profile" events={this.state.pastEvents} noEvents={this.state.noPastEvents} userInfo={this.props.userInfo}/>
             </View>
 
           </View>
