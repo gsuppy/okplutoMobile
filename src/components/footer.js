@@ -63,23 +63,31 @@ const titleConfig = {
       />
     </View> */
 
-const Footer = (props) => (
 
-  <View style={{flexDirection: 'column', justifyContent: 'flex-end'}}>
+class Footer extends Component {
+  constructor(props){
+    super(props);
+  }
 
-  <ThemeProvider uiTheme={uiTheme}>
-      <Toolbar
-        leftElement="arrow-back"
-        onLeftElementPress={() => this.props.navigator.pop()}
-        centerElement="Navbar"
-        rightElement={{
-            actions: ['edit', 'event', 'verified-user']
-        }}
-      />
-  </ThemeProvider>
+  render() {
+    console.log(this.props);
+    return (
+      <View style={{flexDirection: 'column', justifyContent: 'flex-end'}}>
 
-  </View>
+      <ThemeProvider uiTheme={uiTheme}>
+          <Toolbar
+            leftElement="arrow-back"
+            onLeftElementPress={() => this.props.navigate('Home')}
+            centerElement="Navbar"
+            rightElement={{
+                actions: ['edit', 'event', 'verified-user']
+            }}
+          />
+      </ThemeProvider>
 
-)
+      </View>
+    )
+  }
+}
 
 module.exports = Footer;

@@ -8,7 +8,7 @@ const uiTheme = {
   spacing: Spacing,
   fontFamily: 'Quattrocento, sans-serif',
   palette: {
-    primary1Color: COLOR.blue900,
+    primary1Color: COLOR.purple900,
     primary2Color: COLOR.blue700,
     primary3Color: COLOR.blue50,
     accent1Color: COLOR.blueGrey600,
