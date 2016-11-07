@@ -1,10 +1,12 @@
 import React, { Component, PropTypes as T } from 'react';
 import { View, ScrollView, Text, Image, Linking } from 'react-native';
-import { getEvents } from '../services/eventServices.js';
-import EventList from './eventList.js';
+import { getEvents } from '../services/eventServices';
+import EventList from './eventList';
 import Banner from './banner';
 import AutoComplete from 'react-native-autocomplete-input';
 import Footer from './footer';
+import { ThemeProvider, Toolbar, Button } from 'react-native-material-ui';
+
 
 class Events extends Component {
   constructor(props) {
@@ -25,15 +27,15 @@ class Events extends Component {
     getEvents()
     .then( (events) => {
       // Tracker to match distance returned from Google API to correct event in the database
-      var eventDests = [];
-      var tracker = 0;
-      events.events.forEach(event => {
-        if(event.lat && event.lng) {
-          event.tracker = tracker;
-          tracker++;
-          eventDests.push({lat: event.lat, lng: event.lng})
-        }
-      })
+      // var eventDests = [];
+      // var tracker = 0;
+      // events.events.forEach(event => {
+      //   if(event.lat && event.lng) {
+      //     event.tracker = tracker;
+      //     tracker++;
+      //     eventDests.push({lat: event.lat, lng: event.lng})
+      //   }
+      // })
 
       let sortedEvents = events.events;
 
@@ -44,11 +46,9 @@ class Events extends Component {
       //Set Searchable options for autocomplete search
       var searchArray = [];
       events.events.forEach(event => {
-        searchArray.push(event.eventname, event.loc, event.attendees, event.date)
+        searchArray.push(event.eventname, event.loc, event.attendees)
       })
       self.setState({searchSource: searchArray})
-
-      console.log(this.state.events);
       })
     }
 
@@ -63,38 +63,42 @@ class Events extends Component {
 // TODO: need a debounce function so this doesn't fire contantly
 // as user types
 
-// line 89      <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
+/* line 89         <View style={{marginBottom: 20}}>
+          <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
+        </View> */
+
 
 handleChange(text, userNames) {
-    let displayedEvents = this.state.events.filter(event => {
-      if(event.eventname && event.loc) {
-        for (let key in event) {
-          if (event[key] === undefined) {
-            event[key] = '';
-          }
+  let displayedEvents = this.state.events.filter(event => {
+    if(event.eventname && event.loc) {
+      for (let key in event) {
+        if (event[key] === undefined) {
+          event[key] = '';
         }
-        let re = new RegExp(text, "gi")
-        return event.eventname.match(re) || event.loc.match(re)
       }
-    });
-    this.setState({displayedEvents: displayedEvents})
-  }
+      let re = new RegExp(text, "gi")
+      return event.eventname.match(re) || event.loc.match(re)
+    }
+  });
+  this.setState({displayedEvents: displayedEvents})
+}
+
 
 render () {
-    return (
-      <View style={{flex:1}}>
-      <ScrollView>
-          <Banner display={'Local Events'} />
-          <View>
-            <AutoComplete
-              defaultValue="Search Events"
-              data={this.state.searchSource}
-              onChangeText={this.handleChange}
-              onRender={this.handleChange}
-              />
-            </View>
-            <View style={{marginBottom: 20}}>
-          </View>
+  console.log(this.state)
+
+  return (
+    <View style={{flex:1}}>
+    <ScrollView>
+      <Banner display={'Local Events'} />
+      <View>
+        <AutoComplete
+          defaultValue="Search Events"
+          data={this.state.searchSource}
+          onChangeText={this.handleChange}
+          onRender={this.handleChange}
+          />
+        </View>
       </ScrollView>
       <Footer navigate={this._navigate.bind(this)}/>
       </View>

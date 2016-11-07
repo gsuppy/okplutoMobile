@@ -16,8 +16,11 @@ import React from 'react';
 // import * as Colors from 'material-ui/styles/colors';
 
 //Services
-// import { findUser } from '../services/userServices.js'
-import { addPerson, removePerson, deleteEvent } from '../services/eventServices.js'
+import { findUser } from '../services/userServices'
+import { addPerson, removePerson, deleteEvent } from '../services/eventServices'
+import uiTheme from '../theme/theme';
+import { COLOR, Card, ThemeProvider, Toolbar, Button } from 'react-native-material-ui';
+
 
 const calendar = {
   0: "Jan",
@@ -69,18 +72,18 @@ class EventDisplay extends React.Component {
       this.setState({creator: name, creatorDog: user.dogname, pic: user.profilepic});
     });
     let attendees = this.state.attendees;
-    this.props.event.attendees.forEach(attendee => {
-      //Show that the user has joined an event already if within the attendees array
-      if (attendee === this.props.userInfo._id) {
-        self.setState({joined: true})
-      }
-      findUser(attendee)
-      .then(person => {
-        let people = attendees;
-        people.push('\n' + person.firstname);
-        this.setState({attendees: people});
-      });
-    });
+    // this.props.event.attendees.forEach(attendee => {
+    //   //Show that the user has joined an event already if within the attendees array
+    //   if (attendee === this.props.userInfo._id) {
+    //     self.setState({joined: true})
+    //   }
+    //   findUser(attendee)
+    //   .then(person => {
+    //     let people = attendees;
+    //     people.push('\n' + person.firstname);
+    //     this.setState({attendees: people});
+    //   });
+    // });
     //this.state.eventPic holds link to current event's category picture
     this.setState({eventPic: eventPics[this.props.event.category]});
   }
@@ -144,6 +147,42 @@ class EventDisplay extends React.Component {
     this.setState({open: false});
   }
 
+         // <Card>
+        //   <CardHeader
+        //     title={this.props.event.eventname}
+        //     subtitle={'At: ' + this.props.event.loc}
+        //     avatar={this.state.pic}
+        //     actAsExpander={true}
+        //     showExpandableButton={true}
+        //   />
+        //   <CardMedia>
+        //     <img src={this.state.eventPic} />
+        //   </CardMedia>
+        //   <CardText expandable={true}>
+        //     <strong>Creator:</strong> {this.state.creator}<br />
+        //     <strong>Who's going:</strong> {this.state.attendees.map((person, i) => {
+        //       if (i !== this.state.attendees.length - 1) {
+        //         person += ', ';
+        //       }
+        //       return person;
+        //       })}<br />
+        //     <strong>When:</strong> {calendar[date.getMonth()]} {date.getDate()} at {hours}:{min} {ampm} {zone}
+        //   </CardText>
+        //   <CardActions>
+        //     <FlatButton
+        //       label={this.getTitle()}
+        //       onClick={this.handleEventButtonClick}
+        //     />
+        //     <Snackbar
+        //       bodyStyle={{background: Colors.blueGrey600}}
+        //       open={this.state.open}
+        //       message={this.state.message}
+        //       autoHideDuration={3000}
+        //       onRequestClose={this.handleRequestClose}
+        //     />
+        //   </CardActions>
+        // </Card>
+
   render () {
     const date = new Date(this.props.event.date);
     const time = this.props.event.time.split(':');
@@ -153,44 +192,10 @@ class EventDisplay extends React.Component {
     const zone = this.props.event.time.slice(-5);
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(MyTheme)}>
-        <Card>
-          <CardHeader
-            title={this.props.event.eventname}
-            subtitle={'At: ' + this.props.event.loc}
-            avatar={this.state.pic}
-            actAsExpander={true}
-            showExpandableButton={true}
-          />
-          <CardMedia>
-            <img src={this.state.eventPic} />
-          </CardMedia>
-          <CardText expandable={true}>
-            <strong>Creator:</strong> {this.state.creator}<br />
-            <strong>Who's going:</strong> {this.state.attendees.map((person, i) => {
-              if (i !== this.state.attendees.length - 1) {
-                person += ', ';
-              }
-              return person;
-              })}<br />
-            <strong>When:</strong> {calendar[date.getMonth()]} {date.getDate()} at {hours}:{min} {ampm} {zone}
-          </CardText>
-          <CardActions>
-            <FlatButton
-              label={this.getTitle()}
-              onClick={this.handleEventButtonClick}
-            />
-            <Snackbar
-              bodyStyle={{background: Colors.blueGrey600}}
-              open={this.state.open}
-              message={this.state.message}
-              autoHideDuration={3000}
-              onRequestClose={this.handleRequestClose}
-            />
-          </CardActions>
-        </Card>
-      </MuiThemeProvider>
-    )
+      <View>
+        <img src={this.state.eventPic} />
+      </View>
+      )
   }
 }
 
