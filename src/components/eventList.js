@@ -8,7 +8,6 @@ import React from 'react';
 import { View, ScrollView, Text, Image, Linking } from 'react-native';
 import Loading from './loading'
 import EventDisplay from './eventDisplay';
-// import Loading from './loading.jsx'
 
 const Row = (props) => (
   <View>
