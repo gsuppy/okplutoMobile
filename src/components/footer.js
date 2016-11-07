@@ -47,16 +47,18 @@ class Footer extends Component {
       <View style={{flexDirection: 'column', justifyContent: 'flex-end'}}>
       <ThemeProvider uiTheme={uiTheme}>
           <Toolbar
-            leftElement="arrow-back"
+            leftElement="home"
             onLeftElementPress={() => this.props.navigate('Home')}
             centerElement="Navbar"
             rightElement={{
               actions: ['edit', 'event', 'verified-user']
             }}
-            onRightElementPress={() => (
-              this.props.navigate('Profile')
-              )}
-
+            onRightElementPress={() =>
+              (
+                // console.log(this)
+                this.props.navigate('Profile')
+              )
+            }
           />
 
       </ThemeProvider>
