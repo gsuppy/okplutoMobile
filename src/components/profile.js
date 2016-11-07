@@ -130,19 +130,37 @@ class Profile extends Component {
               <ProfileDisplay profile={this.props.profile} />
             </View>
 
-            <View>
-          <Text>Upcoming Events</Text>
+            <View style={styles.padding}>
+            </View>
+          <View style={styles.smallPadding}>
+          <Text style={styles.headerText}>Events:</Text>
+            </View>
+
+          <View>
+          <Text style={styles.centerText}>Upcoming Events</Text>
+          <View style={styles.otherText}>
               <EventList type="profile" events={this.state.upcomingEvents} noEvents={this.state.noUpcomingEvents} userInfo={this.props.userInfo}/>
+              </View>
             </View>
 
-            <View>
-            <Text>Events Created by Me</Text>
+     <View style={styles.smallPadding}>
+            </View>
+
+          <View>
+            <Text style={styles.centerText}>Events Created by Me</Text>
+            <View style={styles.otherText}>
               <EventList type="profile" events={this.state.createdEvents} noEvents={this.state.noCreatedEvents} userInfo={this.props.userInfo}/>
+              </View>
+            </View>
+
+            <View style={styles.smallPadding}>
             </View>
 
             <View>
-              <Text>Past Events</Text>
+              <Text style={styles.centerText}>Past Events</Text>
+                <View style={styles.otherText}>
                 <EventList type="profile" events={this.state.pastEvents} noEvents={this.state.noPastEvents} userInfo={this.props.userInfo}/>
+                </View>
             </View>
 
           </View>
@@ -155,11 +173,28 @@ class Profile extends Component {
 
 
 const styles = {
-  profileInfo:{
-
+  headerText:{
+    fontSize: 30,
+    fontWeight:'bold',
+    textAlign:'center'
   },
-  EventViews:{
-
+  centerText:{
+    textAlign:'center',
+    fontWeight:'bold'
+  },
+  otherText:{
+    paddingLeft:100
+  },
+  image:{
+    paddingTop: 20,
+    paddingBottom: 20,
+    alignItems:'center',
+  },
+  padding:{
+    paddingBottom:30
+  },
+  smallPadding:{
+    paddingBottom:10
   }
 }
 // Make sure auth0 Service is passed in
