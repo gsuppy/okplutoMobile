@@ -30,7 +30,7 @@ class ProfileDisplay extends Component {
         <View>
           <View style={styles.image}>
           <Image 
-          style={{width:150,height:150}}
+          style={{width:150,height:150, borderRadius:75}}
           source={{uri:this.props.profile.picture}} />
           <Text> Profile Picture </Text>
           </View>
@@ -50,12 +50,15 @@ class ProfileDisplay extends Component {
           </View>
 
           <View style={styles.image}>
-            <Image source={{uri:this.props.profile.dogpic} || {uri:'https://i.ytimg.com/vi/KY4IzMcjX3Y/maxresdefault.jpg}'}} />
+            <Image 
+              style={{width:150,height:150, borderRadius:75}} 
+              source={{uri: 'https://i.ytimg.com/vi/KY4IzMcjX3Y/maxresdefault.jpg'}} 
+              />
           </View>
 
           <View>
             <Text style={styles.smallPadding}>Breed: {this.props.profile.dogBreed || 'Golden Retriever'}</Text>
-            <Text style={styles.otherText}>Age: {this.props.profile.dogAge || '14'}</Text>
+            <Text style={styles.otherText}>Age: {this.props.profile.dogAge || '7'}</Text>
           </View>
         </View>
       </ScrollView>
