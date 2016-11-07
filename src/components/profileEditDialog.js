@@ -48,7 +48,7 @@ class ProfileEditDialog extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: this.props.userInfo,
+      user: this.props.profile,
       errorText: {},
       open: false
     };

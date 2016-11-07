@@ -18,6 +18,11 @@ class Events extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  _navigate(path) {
+    this.props.navigator.push({
+      name: path,
+    });
+  }
 // Live update events displayed on page based on user search input
 // TODO: need a debounce function so this doesn't fire contantly
 // as user types
@@ -54,7 +59,7 @@ render () {
             <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
           </View>
       </ScrollView>
-      <Footer />
+      <Footer navigate={this._navigate.bind(this)}/>
       </View>
     )
   }

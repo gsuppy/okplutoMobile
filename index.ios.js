@@ -47,11 +47,9 @@ lock.show({}, (err, profile, token) => {
     return;
   }
   // Authentication worked!
-  console.log(profile);
-  console.log(token);
-
   profileObj = profile;
   tokenObj = token;
+  console.log(profileObj);
 });
 
 // import Router from 'react-native-routing';

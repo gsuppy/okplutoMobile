@@ -7,7 +7,7 @@ import Banner from './banner';
 // import {getUsers} from '../services/userServices'
 //Parent component for profile page - pulls event info from database, and controls render for profile info and user's events display
 import { searchEvents } from '../services/eventServices.js';
-
+import Footer from './footer'
 import NavLoggedIn from './nav-loggedin';
 // import React, { PropTypes as T } from 'react';
 import { PropTypes as T } from 'react';
@@ -36,6 +36,11 @@ class Profile extends Component {
       noCreatedEvents: false,
       value: 'a'
     }
+  }
+    _navigate(path) {
+    this.props.navigator.push({
+      name: path,
+    })
   }
 
 // Load events and divide into Upcoming,
@@ -117,27 +122,43 @@ class Profile extends Component {
   render () {
 
     return (
-      <ScrollView>
-        <View>
-          <Banner display={'Profile'}/>
+      <View style={{flex:1}}>
+        <Banner display={'Profile'}/>
+        <ScrollView>
           <View>
-            <ProfileDisplay userInfo={this.props.UserInfo} />
-          </View>
-          <View>
+            <View>
+              <ProfileDisplay profile={this.props.profile} />
+            </View>
+
+            <View>
               <EventList type="profile" events={this.state.upcomingEvents} noEvents={this.state.noUpcomingEvents} userInfo={this.props.userInfo}/>
             </View>
+
             <View>
               <EventList type="profile" events={this.state.createdEvents} noEvents={this.state.noCreatedEvents} userInfo={this.props.userInfo}/>
             </View>
+
             <View>
               <EventList type="profile" events={this.state.pastEvents} noEvents={this.state.noPastEvents} userInfo={this.props.userInfo}/>
             </View>
-        </View>
-      </ScrollView>
+
+          </View>
+        </ScrollView>
+        <Footer navigate={this._navigate.bind(this)}/>
+      </View>
     )
   }
 }
 
+
+const styles = {
+  profileInfo:{
+
+  },
+  EventViews:{
+
+  }
+}
 // Make sure auth0 Service is passed in
 // correctly as a prop
 // Profile.propTypes = {
