@@ -51,9 +51,9 @@ class Footer extends Component {
             onLeftElementPress={() => this.props.navigate('Home')}
             centerElement="Navbar"
             rightElement={{
-              actions: ['edit', 'event', 'verified-user'],
-              onLongPress: [() => this.props.navigate('Profile')]
+              actions: ['edit', 'event', 'verified-user']
             }}
+            onRightElementPress={() => this.props.navigate('Profile')}
           />
 
       </ThemeProvider>
