@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import {View, Text, Image} from 'react-native';
+import {Card} from 'react-native-material-ui'
 import DialogButton from './dialogButton.js';
 // import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 // import FlatButton from 'material-ui/FlatButton';

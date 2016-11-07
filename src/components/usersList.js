@@ -1,6 +1,7 @@
 "use strict";
 
 import React, { Component } from 'react';
+import {View} from 'react-native'
 import UserDisplay from './userDisplay.js';
 import Loading from './loading.js';
 

@@ -32,14 +32,15 @@ class UsersPage extends Component {
     var self = this;
     getUsers()
     .then((users) => {
-      console.log(users);
+
       var userDests = [];
       var tracker = 0;
 
       //Don't display current user
       users.users = users.users.filter((user) => {
+        console.log('user', user, 'profile', this.props.profile.userId)
         // return user._id !== this.props.userInfo._id;
-        return user._id !== this.props.profile.userId;
+        return user.id !== this.props.profile.userId;
       });
 
       // Set searchable options
