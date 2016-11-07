@@ -4,8 +4,8 @@
 
 "use strict";
 
-import React, { Component, Image, TouchableOpacity, PropTypes } from 'react';
-import { View, ListView, Text, TouchableHighlight, Navigator, NativeModules, StyleSheet } from 'react-native';
+import React, { Component, Image, PropTypes } from 'react';
+import { View, ListView, Text, Navigator, NativeModules, StyleSheet } from 'react-native';
 import uiTheme from '../theme/theme.js';
 import NavigationBar from 'react-native-navbar';
 import { COLOR, ThemeProvider, Toolbar, Button } from 'react-native-material-ui';
@@ -36,34 +36,6 @@ const styles = StyleSheet.create({
     /* <ActionButton
     /> */
 
-const rightButtonConfig = {
-  title: 'Next',
-  handler: function onNext() {
-    alert('Next!');
-  }
-};
-
-const leftButtonConfig = {
-  title: 'Back',
-  handler: function onBack() {
-    alert('Back!');
-  }
-};
-
-const titleConfig = {
-  title: 'Home'
-};
-
-// <Image source={{backArrow}}/>
-/*    <View>
-      <NavigationBar
-        title={titleConfig}
-        leftButton={leftButtonConfig}
-        rightButton={rightButtonConfig}
-      />
-    </View> */
-
-
 class Footer extends Component {
   constructor(props){
     super(props);
@@ -73,18 +45,18 @@ class Footer extends Component {
     console.log(this.props);
     return (
       <View style={{flexDirection: 'column', justifyContent: 'flex-end'}}>
-
       <ThemeProvider uiTheme={uiTheme}>
           <Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigate('Home')}
             centerElement="Navbar"
             rightElement={{
-                actions: ['edit', 'event', 'verified-user']
+              actions: ['edit', 'event', 'verified-user'],
+              onLongPress: [() => this.props.navigate('Profile')]
             }}
           />
-      </ThemeProvider>
 
+      </ThemeProvider>
       </View>
     )
   }
