@@ -18,14 +18,50 @@ class Events extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  _navigate(path) {
-    this.props.navigator.push({
-      name: path,
-    });
-  }
+//initial get request for the events
+  componentDidMount() {
+    var self = this;
+    getEvents()
+    .then( (events) => {
+      // Tracker to match distance returned from Google API to correct event in the database
+      var eventDests = [];
+      var tracker = 0;
+      events.events.forEach(event => {
+        if(event.lat && event.lng) {
+          event.tracker = tracker;
+          tracker++;
+          eventDests.push({lat: event.lat, lng: event.lng})
+        }
+      })
+
+      let sortedEvents = events.events;
+
+      //Set events into state after getting distance
+      self.setState({events: sortedEvents});
+      self.setState({displayedEvents: sortedEvents});
+
+      //Set Searchable options for autocomplete search
+      var searchArray = [];
+      events.events.forEach(event => {
+        searchArray.push(event.eventname, event.loc)
+      })
+      self.setState({searchSource: searchArray})
+
+      console.log(this.state.events);
+      })
+    }
+
+    //navigation path for our footer
+    _navigate(path) {
+      this.props.navigator.push({
+        name: path,
+      });
+    }
 // Live update events displayed on page based on user search input
 // TODO: need a debounce function so this doesn't fire contantly
 // as user types
+
+// line 89      <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
 
 handleChange(text, userNames) {
     let displayedEvents = this.state.events.filter(event => {
@@ -56,7 +92,6 @@ render () {
               />
             </View>
             <View style={{marginBottom: 20}}>
-            <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
           </View>
       </ScrollView>
       <Footer navigate={this._navigate.bind(this)}/>
@@ -65,17 +100,6 @@ render () {
   }
 }
 
-  //     line 45
-  //  line 42             <AutoComplete style={{marginLeft: '75%'}}
-            //      floatingLabelText="Search Events"
-            //      filter={AutoComplete.fuzzyFilter}
-            //      dataSource={this.state.searchSource}
-            //      maxSearchResults={5}
-            //      searchText={this.state.search}
-            //      onUpdateInput={this.handleChange}
-            //      onNewRequest={this.handleChange}
-            // />
-  //      line 39  <NavLoggedIn auth={this.props.auth} toggleDrawer={this.props.toggleDrawer} />
-  //       line 57 <FooterLoggedIn />
+
 
 module.exports = Events;

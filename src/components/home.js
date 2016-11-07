@@ -33,7 +33,7 @@ class IconItem extends Component {
 
   render() {
     if (this.props.link){
-      console.log('testing');
+      // console.log('testing');
       return (
       <View style={styles.iconView}>
       <TouchableHighlight onPress={() => this._onPressButton(this.props.link)}>

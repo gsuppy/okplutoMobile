@@ -14,9 +14,6 @@ import React from 'react';
 // import FlatButton from 'material-ui/FlatButton';
 // import Snackbar from 'material-ui/Snackbar';
 // import * as Colors from 'material-ui/styles/colors';
-// //Our files
-// import Loading from './loading.jsx'
-
 
 //Services
 // import { findUser } from '../services/userServices.js'

@@ -42,7 +42,7 @@ class Footer extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <View style={{flexDirection: 'column', justifyContent: 'flex-end'}}>
       <ThemeProvider uiTheme={uiTheme}>
@@ -53,7 +53,10 @@ class Footer extends Component {
             rightElement={{
               actions: ['edit', 'event', 'verified-user']
             }}
-            onRightElementPress={() => this.props.navigate('Profile')}
+            onRightElementPress={() => (
+              this.props.navigate('Profile')
+              )}
+
           />
 
       </ThemeProvider>
