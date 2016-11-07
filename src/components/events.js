@@ -44,7 +44,7 @@ class Events extends Component {
       //Set Searchable options for autocomplete search
       var searchArray = [];
       events.events.forEach(event => {
-        searchArray.push(event.eventname, event.loc)
+        searchArray.push(event.eventname, event.loc, event.attendees, event.date)
       })
       self.setState({searchSource: searchArray})
 
