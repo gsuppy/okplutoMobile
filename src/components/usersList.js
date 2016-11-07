@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import UserDisplay from './userDisplay.js';
-// import Loading from './loading.js';
+import Loading from './loading.js';
 
 // Row component for each rows
 const Row = (props) => (

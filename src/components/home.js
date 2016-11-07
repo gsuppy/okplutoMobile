@@ -122,6 +122,12 @@ class Home extends Component {
             </ThemeProvider>
           <Text>Get to know fellow dog owners in your area</Text>
           </View>
+          <View style={{alignItems:'center'}}>
+            <ThemeProvider uiTheme={uiTheme}>
+              <Button accent raised text="Check out Users!" onPress={ () => this._navigate('UsersPage') }/>
+            </ThemeProvider>
+            <Text>Get to know fellow dog owners in your area</Text>
+          </View>
 
 
           <View>

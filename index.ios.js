@@ -50,6 +50,7 @@ lock.show({}, (err, profile, token) => {
   profileObj = profile;
   tokenObj = token;
   console.log(profileObj);
+  console.log(tokenObj);
 });
 
 // import Router from 'react-native-routing';
@@ -65,7 +66,7 @@ export default class OKPlutoMobile extends Component {
     } else if (name === 'Events') {
       return <Events navigator={navigator} {...passProps}/>
     } else if (name === 'UsersPage') {
-      return <UsersPage navigator={navigator} />
+      return <UsersPage navigator={navigator} profile={profileObj} />
     } else if (name === 'ProfileCreation') {
       return <ProfileCreation navigator={navigator} />
     }
