@@ -1,10 +1,12 @@
 'use strict';
 import React, {Component, PropTypes as T } from 'react';
 import {View, ScrollView, Text, Image, Linking, TouchableHighlight} from 'react-native';
+import { COLOR, ThemeProvider, Toolbar, Button } from 'react-native-material-ui';
 // import AuthService from '../utils/AuthService.jsx';
 // import Navigation from './nav.jsx';
 // import Auth0Lock from '../../node_modules/auth0-lock';
 import Footer from './footer';
+import uiTheme from '../theme/theme.js';
 
 const House = require('../assets/house.png');
 const Connect = require('../assets/connect.png');
@@ -14,6 +16,7 @@ const Lucas = require('../assets/lucas.png');
 const Philip = require('../assets/philip.png');
 const Kevin = require('../assets/kevin.png');
 const cover = require('../assets/cover2.jpg');
+
 
 // Stateless Components
 
@@ -107,16 +110,16 @@ class Home extends Component {
 
           </View>
           <View style={{alignItems:'center'}}>
-            <TouchableHighlight underlayColor='darkblue' onPress={ () => this._navigate('Events') }>
-              <Text>Check out Events!</Text>
-            </TouchableHighlight>
-          <Text>Get to know fellow dog owners in your area</Text>
+            <ThemeProvider uiTheme={uiTheme}>
+              <Button accent raised text="Check out Events!" onPress={ () => this._navigate('Events') }/>
+            </ThemeProvider>
+            <Text>Get to know fellow dog owners in your area</Text>
           </View>
 
-          <View style={{alignItems:'center'}}>
-            <TouchableHighlight underlayColor='darkblue' onPress={ () => this._navigate('Profile') }>
-              <Text>Check out your Profile!</Text>
-            </TouchableHighlight>
+          <View style={{alignItems:'center', paddingTop: 20}}>
+            <ThemeProvider uiTheme={uiTheme}>
+              <Button accent raised text="Check out your Profile!" onPress={ () => this._navigate('Profile') }/>
+            </ThemeProvider>
           <Text>Get to know fellow dog owners in your area</Text>
           </View>
 
