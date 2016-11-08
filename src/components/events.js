@@ -107,13 +107,13 @@ render () {
             {event.eventname}
           </Text>
         </View>
-        <Text style={{fontStyle: 'italic', fontSize: 18}}>
+        <Text style={{fontStyle: 'normal', fontSize: 18}}>
           {event.loc}
         </Text>
         <Text style={{fontStyle: 'italic'}}>
           {event.date}
         </Text>
-        <Text style={{fontStyle: 'italic'}}>
+        <Text style={{fontStyle: 'oblique'}}>
           {event.creator}
         </Text>
         <View>
@@ -121,13 +121,12 @@ render () {
           style={{width: 200, height: 200}}
           source={pic} />
         </View>
-        <Text style={{fontStyle: ''}}>
+        <Text style={{fontStyle: 'normal'}}>
           {event.attendees}
         </Text>
         <ThemeProvider uiTheme={uiTheme}>
         <View>
           <Button primary raised text="Attend" onPress={() => Alert.alert(
-            '',
             alertMessage,
             [
               {text: 'Heck Yeah!', onPress: () => console.log('OK Pressed!')},
