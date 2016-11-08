@@ -100,22 +100,29 @@ render () {
     pic = eventPics[pic]
 
     display.push(
-      <View style={{flex: 1, flexDirection: 'column', padding: 10, alignItems: 'center', backgroundColor: 'white', marginBottom: 15}}>
-        <Text style={{fontWeight:'bold', fontSize: 24}}>
-          {event.eventname}
-
-        </Text>
+      <View style={{flex: 1, flexDirection:"column", padding: 20, alignItems: 'center', backgroundColor: 'white', marginBottom: 15}}>
+        <View style={{flex:10, flexDirection:"column", backgroundColor:'#BDBDBD', width:900, alignItems: 'center'}}>
+          <Text style={{fontWeight:'bold', fontSize: 24, textShadowOffset: {width: 2, height: 2}, textShadowRadius: 1, textShadowColor: 'black', padding: 20, color: 'white'}}>
+            {event.eventname}
+          </Text>
+        </View>
         <Text style={{fontStyle: 'italic', fontSize: 18}}>
           {event.loc}
         </Text>
         <Text style={{fontStyle: 'italic'}}>
           {event.date}
         </Text>
+        <Text style={{fontStyle: 'italic'}}>
+          {event.creator}
+        </Text>
         <View>
           <Image
           style={{width: 200, height: 200}}
           source={pic} />
         </View>
+        <Text style={{fontStyle: ''}}>
+          {event.attendees}
+        </Text>
       </View>
       )
   })

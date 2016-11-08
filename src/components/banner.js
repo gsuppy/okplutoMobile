@@ -15,11 +15,11 @@ const Banner = (props) => (
       height: 60,
       backgroundColor: '#145199',
       justifyContent: 'center',
-      alignItems: 'center' 
+      alignItems: 'center'
     },
     text:{
       fontWeight: 'bold',
-      fontSize: 20,
+      fontSize: 28,
       color: 'white'
     }
   }
