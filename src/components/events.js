@@ -1,5 +1,5 @@
 import React, { Component, PropTypes as T } from 'react';
-import { View, ScrollView, Text, Image, Linking } from 'react-native';
+import { Alert, View, ScrollView, Text, Image, Linking } from 'react-native';
 import { getEvents } from '../services/eventServices';
 import EventList from './eventList';
 import Banner from './banner';
@@ -98,6 +98,7 @@ render () {
 
     let pic = Math.floor(Math.random() * eventPics.length)
     pic = eventPics[pic]
+    var alertMessage = "Are you sure you want to attend " + event.eventname + "?"
 
     display.push(
       <View style={{flex: 1, flexDirection:"column", padding: 20, alignItems: 'center', backgroundColor: 'white', marginBottom: 15}}>
@@ -123,6 +124,18 @@ render () {
         <Text style={{fontStyle: ''}}>
           {event.attendees}
         </Text>
+        <ThemeProvider uiTheme={uiTheme}>
+        <View>
+          <Button primary raised text="Attend" onPress={() => Alert.alert(
+            '',
+            alertMessage,
+            [
+              {text: 'Heck Yeah!', onPress: () => console.log('OK Pressed!')},
+              {text: "Don't Sign Me Up!", onPress: () => console.log('Cancel Pressed!')}
+            ]
+          )}/>
+        </View>
+        </ThemeProvider>
       </View>
       )
   })
