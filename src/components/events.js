@@ -5,8 +5,14 @@ import EventList from './eventList';
 import Banner from './banner';
 import AutoComplete from 'react-native-autocomplete-input';
 import Footer from './footer';
-import { ThemeProvider, Toolbar, Button } from 'react-native-material-ui';
+import { Card, ThemeProvider, Toolbar, Button } from 'react-native-material-ui';
+import uiTheme from '../theme/theme.js';
 
+const friends = require('../assets/friends.png');
+const trails = require('../assets/trails.jpg');
+const beach = require('../assets/beach.jpg');
+const dogpark = require('../assets/dogpark.jpg');
+const park = require('../assets/park.jpg');
 
 class Events extends Component {
   constructor(props) {
@@ -63,9 +69,7 @@ class Events extends Component {
 // TODO: need a debounce function so this doesn't fire contantly
 // as user types
 
-/* line 89         <View style={{marginBottom: 20}}>
-          <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
-        </View> */
+// line 89
 
 
 handleChange(text, userNames) {
@@ -82,26 +86,58 @@ handleChange(text, userNames) {
   });
   this.setState({displayedEvents: displayedEvents})
 }
-
+//           <EventList events={this.state.displayedEvents} userInfo={this.props.userInfo} />
 
 render () {
-  console.log(this.state)
+  console.log(this.state.displayedEvents)
+  let display = [];
+  this.state.displayedEvents.forEach( (event) => {
+    event.date = event.date.slice(0, 10)
+
+    const eventPics = [friends, beach, trails, dogpark, park]
+
+    let pic = Math.floor(Math.random() * eventPics.length)
+    pic = eventPics[pic]
+
+    display.push(
+      <View style={{flex: 1, flexDirection: 'column', padding: 10, alignItems: 'center', backgroundColor: 'white', marginBottom: 15}}>
+        <Text style={{fontWeight:'bold', fontSize: 24}}>
+          {event.eventname}
+
+        </Text>
+        <Text style={{fontStyle: 'italic', fontSize: 18}}>
+          {event.loc}
+        </Text>
+        <Text style={{fontStyle: 'italic'}}>
+          {event.date}
+        </Text>
+        <View>
+          <Image
+          style={{width: 200, height: 200}}
+          source={pic} />
+        </View>
+      </View>
+      )
+  })
 
   return (
     <View style={{flex:1}}>
     <ScrollView>
       <Banner display={'Local Events'} />
-      <View>
-        <AutoComplete
+        <View>
+          <AutoComplete
           defaultValue="Search Events"
-          data={this.state.searchSource}
+          data={[]}
           onChangeText={this.handleChange}
           onRender={this.handleChange}
           />
         </View>
+        <View style={{marginBottom: 20}}>
+          {display}
+        </View>
       </ScrollView>
       <Footer navigate={this._navigate.bind(this)}/>
-      </View>
+    </View>
     )
   }
 }

@@ -5,6 +5,8 @@
 "use strict";
 
 import React from 'react';
+import { View, ScrollView, Text, Image, Linking } from 'react-native';
+
 //Required for Material-UI
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -85,7 +87,7 @@ class EventDisplay extends React.Component {
     //   });
     // });
     //this.state.eventPic holds link to current event's category picture
-    this.setState({eventPic: eventPics[this.props.event.category]});
+    this.setState({eventPic: eventPics['Beach']});
   }
 
   join() {
@@ -184,18 +186,18 @@ class EventDisplay extends React.Component {
         // </Card>
 
   render () {
-    const date = new Date(this.props.event.date);
-    const time = this.props.event.time.split(':');
-    const hours = time[0] > 12 ? time[0] - 12 : time[0];
-    const min = time[1];
-    const ampm = time[0] >=12 ? 'PM' : 'AM';
-    const zone = this.props.event.time.slice(-5);
+    // const date = new Date(this.props.event.date);
+    // const time = this.props.event.time.split(':');
+    // const hours = time[0] > 12 ? time[0] - 12 : time[0];
+    // const min = time[1];
+    // const ampm = time[0] >=12 ? 'PM' : 'AM';
+    // const zone = this.props.event.time.slice(-5);
 
     return (
       <View>
-        <img src={this.state.eventPic} />
+        <img src={this.state.eventPic}/>
       </View>
-      )
+    )
   }
 }
 
