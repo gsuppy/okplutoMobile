@@ -51,7 +51,7 @@ class EventList extends React.Component {
         <View>
           {
             rows.map(row => (
-              <Row row={row} userInfo={this.props.userInfo} class={className}/>
+              <Row key={row} row={row} userInfo={this.props.userInfo} class={className}/>
             ))
           }
       </View>

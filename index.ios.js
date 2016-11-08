@@ -66,7 +66,7 @@ export default class OKPlutoMobile extends Component {
     } else if (name === 'Events') {
       return <Events navigator={navigator} {...passProps}/>
     } else if (name === 'UsersPage') {
-      return <UsersPage navigator={navigator} profile={profileObj} />
+      return <UsersPage navigator={navigator} profile={profileObj} token={tokenObj} />
     } else if (name === 'ProfileCreation') {
       return <ProfileCreation navigator={navigator} />
     }
@@ -78,6 +78,8 @@ export default class OKPlutoMobile extends Component {
       style={styles.viewStyle}
       initialRoute={{name:'Home'}}
       renderScene={this.renderScene}
+      configureScene={(route, routeStack) =>
+      Navigator.SceneConfigs.VerticalUpSwipeJump}
       />
     )
   }
